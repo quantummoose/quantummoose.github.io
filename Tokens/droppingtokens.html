@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Drop em</title>
+  </head>
+  <body>
+    <canvas id="demoCanvas" width="500" height="300" style="background-color: white;">
+        alternate content no canvas enabled.
+    </canvas>
+    <script src="https://code.createjs.com/createjs-2015.11.26.min.js"></script>
+    <script>
+
+    var stage = new createjs.Stage("demoCanvas");
+    w = stage.canvas.width;
+    h = stage.canvas.height;
+    var circlelist = new Array();
+    var circleXpos = new Array(); // indexing based on position is quicker to remove says something online...
+    var circleYpos = new Array();
+    // need some way to keep track of circles, to remove them and such..
+
+    //createjs.Ticker.timingMode = createjs.Ticker.RAF;
+    createjs.Ticker.addEventListener("tick", tick);
+    var nextdrop = 5// + createjs.Ticker.getTime(); # of seconds
+
+    var circle = new createjs.Shape();
+    circlelist.push(circle);
+    circle.graphics.beginFill("black").drawCircle(0,0,50);
+    circle.x = 100;
+    circle.y = 100;
+    stage.addChild(circle);
+    stage.update();
+    console.log(circlelist[0])
+    // console.log(circle.x+50); //
+
+    function drop_circle() {
+      var circle = new createjs.Shape();
+      circle.graphics.beginFill("black").drawCircle(0,0,50);
+      // randomly create x and y position.
+      circle.x = Math.random() * w;
+      circle.y = 0;
+      // Actions on the circle.
+      circle.on("click", function() {
+        console.log("clicked a topen");
+        stage.removeChild(circle);
+        stage.update();
+      })
+      circlelist.push(circle);
+      stage.addChild(circle);
+      stage.update();
+    }
+
+    function move_circle(movement, circle) {
+      circle.y = movement;
+      stage.update();
+    }
+
+
+    function tick(event){
+      console.log(event.time*0.001)
+      if (event.time*0.001 >= nextdrop){
+        console.log('dropping token') // this works, but not the way I want it... tokens aren't dropping/moving.
+        drop_circle();
+        nextdrop = nextdrop + 5; // + event.time*0.001;
+      }
+/*
+      circle.addEventListener("tick", function(event) {
+        var deltaS = event.delta / 1000;
+        var movement = circle.y + deltaS * 150;
+        if (movement >= h + circle.y + 50){
+          stage.removeChild(circle)
+          stage.update();
+        }else{
+          move_circle(movement, circle)
+        }
+      });
+      */
+      //for (circle in circlelist)
+    }
+
+    circle.addEventListener("tick", function(event) {
+      var deltaS = event.delta / 1000;
+      var movement = circle.y + deltaS * 150;
+      if (movement >= h + circle.y + 50){
+        stage.removeChild(circle)
+        stage.update();
+      }else{
+        move_circle(movement, circle)
+      }
+    });
+
+
+    stage.on("")
+
+
+
+    </script>
+
+
+  </body>
+</html>
