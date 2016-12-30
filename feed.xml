@@ -1,31 +1,51 @@
----
-layout: null
-nav_exclude: true
----
 <?xml version="1.0" encoding="UTF-8"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>{{ site.title | xml_escape }}</title>
-    <description>{{ site.description | xml_escape }}</description>
-    <link>{{ site.url }}{{ site.baseurl }}/</link>
-    <atom:link href="{{ "/feed.xml" | prepend: site.baseurl | prepend: site.url }}" rel="self" type="application/rss+xml"/>
-    <pubDate>{{ site.time | date_to_rfc822 }}</pubDate>
-    <lastBuildDate>{{ site.time | date_to_rfc822 }}</lastBuildDate>
-    <generator>Jekyll v{{ jekyll.version }}</generator>
-    {% for post in site.posts limit:10 %}
+    <title>Tufte</title>
+    <description>A Jekyll theme for content-rich sites</description>
+    <link>/blog/</link>
+    <atom:link href="/blog/feed.xml" rel="self" type="application/rss+xml"/>
+    <pubDate>Fri, 30 Dec 2016 03:26:08 +0000</pubDate>
+    <lastBuildDate>Fri, 30 Dec 2016 03:26:08 +0000</lastBuildDate>
+    <generator>Jekyll v3.3.1</generator>
+    
       <item>
-        <title>{{ post.title | xml_escape }}</title>
-        <description>{{ post.content | xml_escape }}</description>
-        <pubDate>{{ post.date | date_to_rfc822 }}</pubDate>
-        <link>{{ post.url | prepend: site.baseurl | prepend: site.url }}</link>
-        <guid isPermaLink="true">{{ post.url | prepend: site.baseurl | prepend: site.url }}</guid>
-        {% for tag in post.tags %}
-        <category>{{ tag | xml_escape }}</category>
-        {% endfor %}
-        {% for cat in post.categories %}
-        <category>{{ cat | xml_escape }}</category>
-        {% endfor %}
+        <title>This blog what am I doing?</title>
+        <description>&lt;p&gt;As a new blogger with Jekyll, one of my first posts is required to be about setting up this blog itself. Jekyll, as most things developed by programmers, is super easy and wonderful and magic and like sweet ambrosia.&lt;/p&gt;
+
+&lt;p&gt;Overall it hasn’t been that bad of actually. Most of the guides are &lt;a href=&quot;http://andybeger.com/2016/06/20/moving-from-wordpress-to-jekyll/&quot;&gt;pretty detailed&lt;/a&gt;, and walk you through most of the problems you might have.&lt;/p&gt;
+
+&lt;p&gt;This blog uses the &lt;a href=&quot;https://github.com/clayh53/tufte-jekyll&quot;&gt;Tufte-Jekyll&lt;/a&gt; theme, developed by Clay Harmon, which uses custom Liquid tags.&lt;/p&gt;
+</description>
+        <pubDate>Thu, 29 Dec 2016 00:00:00 +0000</pubDate>
+        <link>/blog/articles/16/this-blog</link>
+        <guid isPermaLink="true">/blog/articles/16/this-blog</guid>
+        
+        
+        <category>random</category>
+        
       </item>
-    {% endfor %}
+    
+      <item>
+        <title>The aleph</title>
+        <description>&lt;p&gt;I’m the kind of researcher that needs to include everything into my work as much as I can. Partially this is due to how quick progress on an early part of a project is, which is just motivational candy for me. A big problem with that is it makes it harder to finish projects. So this blog basically functions as a way to force myself around that to some degree.&lt;/p&gt;
+
+&lt;p&gt;Thinking through this reminds me of the Borges story The Aleph, which I suggest you &lt;a href=&quot;http://web.mit.edu/allanmc/www/borgesaleph.pdf&quot;&gt;take the time&lt;/a&gt; to read. In it Borges finds himself in the apartment of a rival poet, who is both mediocre and successful, and who incidentally has the Aleph under the stairs in his basement.&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;The Aleph’s diameter was probably little more than an inch, but all space was there, actual and undiminished. Each thing (a mirror’s face, let us say) was infinite things, since I distinctly saw it from every angle of the universe.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;In this single point an impossible amount of space exists. I think I have this problem of shoving an &lt;span&gt;​&lt;script type=&quot;math/tex&quot;&gt; \aleph &lt;/script&gt;&lt;/span&gt; into my work, when a much smaller cardinality would do.&lt;/p&gt;
+</description>
+        <pubDate>Wed, 28 Dec 2016 00:00:00 +0000</pubDate>
+        <link>/blog/articles/16/the-aleph</link>
+        <guid isPermaLink="true">/blog/articles/16/the-aleph</guid>
+        
+        
+        <category>random</category>
+        
+      </item>
+    
   </channel>
 </rss>
