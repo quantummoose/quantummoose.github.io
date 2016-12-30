@@ -19,9 +19,9 @@ page:
   extension: md
 editor: gvim
 git:
-  branch: master
+  branch: servant
 transfer:
   command: rsync
   settings: -av
   source: _site/
-  destination: ~/Git/clayh53.github.com/
+  destination: ~/Git/quantummose.github.com/
