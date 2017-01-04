@@ -21,7 +21,9 @@ The threat fluctuates outside of the safe room as well. The graph below shows th
 
 {% maincolumn "assets/img/l4dintensity.png" "Note that during the Relax period the intensity takes a while to drop down."%}
 
-Games can play with these feelings of safety and mess with your expectations one way or the other. In the game [*Amnesia: The Dark Descent*](https://www.youtube.com/watch?v=9jWsiyXoTz0) you are tracked by a few unknown monsters throughout most of the game, and can hide in the dark at the risk of insanity. Most of the game presents a fairly constant (though still fluctuating) state of fear. However a few moments of relative safety do occur, one being the presence of Heinrich Cornelius Agrippa.
+Games can play with these feelings of safety and mess with your expectations one way or the other. In the game [*Amnesia: The Dark Descent*](https://www.youtube.com/watch?v=9jWsiyXoTz0) you are tracked by a few unknown monsters throughout most of the game, and can hide in the dark at the risk of insanity. Light is a common safety motif across games, mostly due to the simple fact that light allows for sight. However some play with this; in Amnesia there's a tradeoff, while in [*Among the Sleep*](https://en.wikipedia.org/wiki/Among_the_Sleep) light is a limited resource.
+
+Throughout most of Amnesia the game presents a fairly constant (though still fluctuating) state of fear. However a few moments of relative safety do occur, one being the presence of Heinrich Cornelius Agrippa.
 
 {% maincolumn "assets/img/amnesia-the-dark-descent-agrippa.jpg" "<a href=\"https://youtu.be/syBkLLe-_nk?t=4m33s\">Hey buddy</a>" %}
 
