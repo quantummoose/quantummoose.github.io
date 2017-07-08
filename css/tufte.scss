@@ -109,6 +109,12 @@ h3 { font-style: italic;
      margin-bottom: 0;
      line-height: 1.08888888888889; }
 
+site-title { font-weight: 400;
+     margin-top: 1.568rem;
+     margin-bottom: 1.568rem;
+     font-size: 2.5rem;
+     line-height: 0.784; }
+
 // ET says a need for more than 3 levels of headings is the sign of a diseased mind
 
 p .subtitle { font-style: italic;
@@ -344,11 +350,15 @@ header > nav.group, body footer {
   padding-top: 2rem;
 }
 
+footer.front {
+  width: 100%;
+}
+
 nav.group a.active:before{ content:"\0007b\000a0";} // escaped unicode for the carats and then a space on active menu links
 nav.group a.active:after{ content:"\000a0\0007d" ;}
 
 header > nav  a{
-  font-size: 1.2rem;
+  font-size: 1.4rem;
   font-family: $sans-font;
   letter-spacing: 0.15em;
   text-transform: uppercase;
@@ -390,6 +400,7 @@ ul.footer-links li{
       color: $contrast-color;
     }
 }
+
 
 // End of Nav and Footer styling area
 
