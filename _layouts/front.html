@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+    {% include head.html %}
+    <body class = "full-width">
+        <main role="main" class="content">
+          <div style = "text-align:center" >
+
+            <img class="circular--square" src="assets/img/llama_self.jpg"  width="30%"/>
+
+                {{ content }}
+                <!-- add more content ~ link to blog and other stuff. -->
+                {% include header.html %}
+          </div>
+        </main>
+
+        {% include print-footer.html %}
+        {% include footer.html %}
+    </body>
+
+</html>

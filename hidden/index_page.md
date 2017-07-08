@@ -1,7 +1,6 @@
----
+
 layout: full-width
-title: toolkit
----
+title: resources
 
 
 {% marginfigure 'mf-fig-1' 'assets/img/brainpaper.png' 'Playing with a *margin figure*. Here is a picture of my brain from a neuroimaging course I took.' %}
