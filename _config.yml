@@ -1,10 +1,10 @@
 baseurl:
 title: dominic mussack
-subtitle: Content-centric blogging
+subtitle: Ph.D. student in computational psychology
 author: Dominic Mussack
 simple_search: http://google.com/search
-description: A Jekyll theme for content-rich sites
-name: tufte
+description: psychology and data science
+name: Dominic Mussack
 markdown: kramdown
 markdown_ext: "markdown,mkdown,mkdn,mkd,md"
 permalink: /articles/:short_year/:title

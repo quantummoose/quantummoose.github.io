@@ -69,10 +69,17 @@ p > a { @if $link-style == underline
       border-bottom: 1px solid #777;
       padding-bottom: 1px;
     }
-    @else
+    @elseif $link-style == color
     {
       color: $contrast-color;
       text-decoration: none;
+    }
+    @elseif $link-style == both
+    {
+      color: $contrast-color;
+      text-decoration: none;
+      border-bottom: 1px solid #777;
+      padding-bottom: 1px;
     }
   }
 
