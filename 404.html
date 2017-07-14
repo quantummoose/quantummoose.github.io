@@ -1,9 +1,73 @@
 ---
-# example 404.md
-
 layout: default
 permalink: /404.html
 nav_exclude: true
+title: 404
 ---
 
-Nehhhhh
+# Create dropping tokens -
+<body>
+  <div>
+    <canvas id="demoCanvas" width="800" height="300" style="background-color: white; boarder:4px border-color">
+        alternate content no canvas enabled.
+    </canvas>
+  </div>
+  <script src="https://code.createjs.com/createjs-2015.11.26.min.js"></script>
+  <script>
+
+  // Create the stage and tokens
+  var stage = new createjs.Stage("demoCanvas");
+  w = stage.canvas.width;
+  h = stage.canvas.height;
+  var tokens = new createjs.Container();  // way to keep track of tokens
+  stage.addChild(tokens); // Adding this in general.
+
+  // An event listener
+  //createjs.Ticker.timingMode = createjs.Ticker.RAF;
+  createjs.Ticker.addEventListener("tick", handleTick); // add an event listener
+
+  // Time to drop the next token.
+  var nextdrop = 1*1000 + createjs.Ticker.getTime(); //# of ms
+
+  // Create and drop a circle to the stage.
+  function dropCircle(){
+    // create the circle w/ parameters
+    var circle = new createjs.Shape();
+    circle.graphics.beginFill("#2a3132").drawCircle(0,0,50);
+    circle.x = 25 + Math.random() * (w - 25);
+    circle.y = -50;
+    circle.dy = 5 + Math.random() * 5;
+    circle.addEventListener("click", function(event) {
+      // circle.graphics.beginFill("green").drawCircle(0,0,50);
+      tokens.removeChild(event.target);
+    })
+    tokens.addChild(circle); // used to update circles.
+  }
+
+  // Update based on ticks
+  function handleTick(event) {
+    if(nextdrop <= createjs.Ticker.getTime()){
+      dropCircle();
+      nextdrop += Math.random() * 4000;
+    }
+    for(i in tokens.children){
+      updateCircle(i)
+    }
+
+    // later only update when we have to, but for now ehhh.
+    stage.update();
+  }
+
+  // Function to update circle movement or remove it.
+  function updateCircle(circlei) { // input is the index of the circle in the lists
+      if(tokens.children[circlei].y >= w + 50){ // if out of bounds remove child
+        tokens.removeChildAt(circlei);
+      }else{ // otherwise move the child
+        tokens.children[circlei].y += tokens.children[circlei].dy;
+      }
+  }
+
+  </script>
+
+
+</body>

@@ -2,7 +2,7 @@
 layout: post
 title:  "Safety and threat in games"
 date: 2017-01-03
-categories: games
+categories: research
 ---
 
 {% marginfigure "one" "assets/img/carveraffect.png" "The different emotions produced from successful approach or avoidance, from <a href=\"http://www.psy.miami.edu/faculty/ccarver/pPleasure.pdf\">Carver (2003)</a>" %}

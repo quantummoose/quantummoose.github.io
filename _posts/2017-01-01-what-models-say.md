@@ -2,7 +2,7 @@
 layout: post
 title:  "Model fitting: testing versus using"
 date: 2017-01-01
-categories: math
+categories: research
 ---
 {% newthought "I've been dwelling" %} recently on what a model does, in terms of how it can be used and what it means. In particular, *Mathematical Psychology: An elementary introduction*{% sidenote "one" "By Coombs, Dawes, and Tversky from 1970" %}, describes two very different ways of using a model that I want to talk about here.
 
