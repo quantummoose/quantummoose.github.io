@@ -6,7 +6,7 @@ title: research
 ~ in progress~
 
 
-{% newthought "My research" %} is focused on how people allocate their time to different tasks, and in the underlying computations the human motivational and cognitive systems use to solve this problem. How do people solve the decision to quit a task, and how do people integrate together cues from both the task and environment to make this decision? Also how do internal motives, in particular curiosity and mastery, integrate to decide the value and priority of a goal?
+{% newthought "My research" %} is focused on how people allocate their time to different tasks, and in the underlying computations the human motivational and cognitive systems use to solve this problem. How do people solve the decision to quit or enter a task, and how do people integrate together cues from both the task and environment to make this decision? Also how do internal motives, in particular curiosity and mastery, integrate to decide the value and priority of a goal?
 
 The different projects I am working on all share this focus on time allocation.
 

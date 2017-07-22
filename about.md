@@ -7,4 +7,4 @@ I am a [graduate student](https://cla.umn.edu/about/directory/profile/muss0080) 
 
 This summer I am instructor for an introduction to data analysis course for Psychology students; teaching how to perform and communicate basic statistical analysis. I've also taught research methods, major projects (a capstone course for psychology students), and lectured about Bayesian cognition.
 
-My other interests include game design, science communication and history, and social justice.
+My other passions include game design, science communication and history, and social justice.
