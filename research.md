@@ -3,17 +3,19 @@ layout: default
 title: research
 ---
 
-~ in progress~
+{% newthought "My research" %} is focused on understanding the motivational underpinnings of task engagement, and how people allocate their time to different tasks. What are the underlying computations people use to solve this problem? Also how do internal motives, in particular curiosity and mastery, integrate with environmental cues to decide the value and priority of a goal?
 
+This page is forever in progress...
 
-{% newthought "My research" %} is focused on how people allocate their time to different tasks, and in the underlying computations the human motivational and cognitive systems use to solve this problem. How do people solve the decision to quit or enter a task, and how do people integrate together cues from both the task and environment to make this decision? Also how do internal motives, in particular curiosity and mastery, integrate to decide the value and priority of a goal?
+### Meta-cognitive decision making
+How do higher level states of an agent (such as emotional states) impact how many resources they allocate to a task?
 
-The different projects I am working on all share this focus on time allocation.
+We utilize a perceptual decision making task, detecting motion in a random-dot field, along with the drift diffusion model to address this. People often have to trade off collecting more information versus waiting longer to make a decision. What factors influence when people stop collecting information?
 
-### Temporal decision making
-What factors influence when people stop collecting information? We utilize a perceptual decision making task, detecting motion in a random-dot field, along with an optimal stopping diffusion model to investigate these factors which are both task relevant and irrelevant.
+For these projects we collect behavioral, EEG, and biometric (GSR, heart rate, and pupilometry) data. Data analysis and modeling is done in MATLAB, R, and Python.
 
-For these projects we collect both behavioral, EEG, and biometric (GSR and heart rate) signals. Our analysis uses MATLAB, R, and Python. This includes [FieldTrip](http://www.fieldtriptoolbox.org/), [HDDM](http://ski.clps.brown.edu/hddm_docs/), [JAGS](http://mcmc-jags.sourceforge.net/), partial least squares analysis, system identification, and survival analysis. We also are developing a Bayesian ideal observer model for the motion detection, in MATLAB.
+### Time allocation and foraging
+When an animal forages for food they must make a decision of how much time to spend in each patch before moving on. Foraging theory can be applied to a human's decision to quit a task by extending to more complex tasks and making connections with other scheduling theories.
 
-### Spontaneous task switching
-When do people decide to quit one task to engage in another?
+### Video games and intrinsic motivation
+By using recent advances in deep RL, we can model human performance in video games and predict when they will quit a game based on their ability to control, predict, and learn about the game.
