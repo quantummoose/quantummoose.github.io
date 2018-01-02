@@ -10,8 +10,16 @@ title: blog
       <li class="listing">
         <hr class="slender">
         <a href="{{ post.url | prepend: site.baseurl }}"><h3 class="contrast">{{ post.title }}</h3></a>
-        <br><span class="smaller">{{ post.date | date: "%B %-d, %Y" }}</span>  <br/>
+        {% if post.tagline %}
+          <br><span class="smaller"> &#9758; {{ post.tagline }}</span> <br/>
+          <span class="smaller">{{ post.date | date: "%B %-d, %Y" }}</span>
+        {% else %}
+          <br><span class="smaller">{{ post.date | date: "%B %-d, %Y" }}</span><br/>
+        {% endif %}
+
 
       </li>
   {% endfor %}
 </ul>
+
+<!-- Have taglines if statement; do a default if no tagline -->

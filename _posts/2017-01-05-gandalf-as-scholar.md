@@ -3,6 +3,7 @@ layout: post
 title:  "Scholarship in Tolkien's books"
 date: 2017-01-06
 categories: random
+tagline: "I am a turbo-nerd, and people doing research in Middle Earth is cool."
 ---
 
 At the beginning of the *Lord of the Rings: The Fellowship of the Rings* (the movie), Galadriel tells the story of the loss and finding of the Ring. This rather well done exposition goes from the creation of the rings of power to Bilbo finding the ring and ends by transitioning into the Long Expected Party, which is where the book starts. The book's prologue only features some Hobbit lore and reminds the readers of Bilbo's story, but doesn't detail the lost lore of the Ring. The reader isn't told this lore - it is something that Gandalf has to research.

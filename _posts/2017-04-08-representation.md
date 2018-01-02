@@ -3,6 +3,7 @@ layout: post
 title:  "Representation in Psychology"
 date: 2017-04-08
 categories: research
+tagline: A mathematical notion of cognitive representation.
 ---
 
 I had long been confused about the concept of representation as it appears in psychology, most because it had been rather poorly taught and vaguely explained in my undergraduate years. I even remember remarking in an animal cognition course about how psychologist's don't seem to have a unified sense of what "representation" means. More recently the idea has become much clearer (for me), in particular after reading through Gallistel's book *The Organization of Learning*. There he identified representation psychologically with representation mathematically, which I think buys you a lot.

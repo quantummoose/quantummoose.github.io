@@ -1,6 +1,7 @@
 ---
 layout: default
 title: research
+published: false
 ---
 
 {% newthought "My research" %} is focused on understanding the motivational underpinnings of task engagement, and how people allocate their time to different tasks. What are the underlying computations people use to solve this problem? Also how do internal motives, in particular curiosity and mastery, integrate with environmental cues to decide the value and priority of a goal?
