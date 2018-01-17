@@ -12,9 +12,6 @@ title: blog
         <a href="{{ post.url | prepend: site.baseurl }}"><h3 class="contrast">{{ post.title }}</h3></a>
         {% if post.tagline %}
           <br><span class="smaller"> &#9758; {{ post.tagline }}</span> <br/>
-          <span class="smaller">{{ post.date | date: "%B %-d, %Y" }}</span>
-        {% else %}
-          <br><span class="smaller">{{ post.date | date: "%B %-d, %Y" }}</span><br/>
         {% endif %}
 
 
@@ -22,4 +19,5 @@ title: blog
   {% endfor %}
 </ul>
 
-<!-- Have taglines if statement; do a default if no tagline -->
+<!--           <br><span class="smaller">{{ post.date | date: "%B %-d, %Y" }}</span><br/>
+ -->
