@@ -1,28 +1,23 @@
 ---
-layout: front
-nav_exclude: true
+layout: default
+title: blog
 ---
+<!-- longterm goal - add menu like: https://github.com/victorvoid/space-jekyll-template -->
+<!--subheader -->
+
+<ul class="content-listing ">
+  {% for post in site.posts %}
+      <li class="listing">
+        <hr class="slender">
+        <a href="{{ post.url | prepend: site.baseurl }}"><h3 class="contrast">{{ post.title }}</h3></a>
+        {% if post.tagline %}
+          <br><span class="smaller"> &#9758; {{ post.tagline }}</span> <br/>
+        {% endif %}
 
 
+      </li>
+  {% endfor %}
+</ul>
 
-
-graduate student in computational psychology
-
-<br>
-<br>
-
-researching human motivation and decision making
-
-<br>
-<br>
-
-<!--
-~Site in progress~
-
-Things to update:
-Frontpage ?
-add about page
-add research tools page. What I use.
-- https://www.garron.me/en/blog/multi-blog-site-jekyll.html
-edit posts in different categories. Have blog.html be split into research and fun? Subheader perhaps
--->
+<!--           <br><span class="smaller">{{ post.date | date: "%B %-d, %Y" }}</span><br/>
+ -->
