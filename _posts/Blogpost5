@@ -1,8 +1,0 @@
-# Introduction to Bayesian models of cognition.
-
-Cognitive psychology is often treated as a historical response to behaviorism, using the ideas of information processing and decision making to explain human behavior{% sidenote 'one'
-“And so, he was talking about information processing and I was talking about decision making and we decided that it was the same thing.” - Herbert Simon on meeting Alan Newell, from: [Models of a Man: Essays in Memory of Herbert A. Simon](https://books.google.com/books?id=FR5Cee2IqkcC&pg=PA19&lpg=PA19&dq=newell+simon+1972+human+problem+solving+dynamic+programming&source=bl&ots=DbQb5yZjhN&sig=_g8RQ7G_teXhMEAFnc2bjvUvpW0&hl=en&sa=X&ved=0ahUKEwimrc7A85LRAhVO0mMKHQKGBs4Q6AEINjAE#v=onepage&q=newell%20simon%201972%20human%20problem%20solving%20dynamic%20programming&f=false)
-}.
-Many other frameworks and paradigms have historically filled in the details, but most are often an addendum rather than some huge shift from the cybernetic and computational origins. Bayesian cognition is essentially no different in that respect, and makes much softer claims on cognition than I think most people expect.
-
-The real central thesis of Bayesian cognition is that beliefs are treated as random variables. Rather than simply having a belief, such as that there is a cat in a picture, you also have uncertainty in that belief.
