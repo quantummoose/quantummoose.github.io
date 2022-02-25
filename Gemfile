@@ -2,4 +2,7 @@ source 'https://rubygems.org'
 
 gem 'jekyll'
 gem 'rouge'
-gem 'tufte'
+
+gem "tzinfo"
+gem "tzinfo-data"
+gem "webrick" 
