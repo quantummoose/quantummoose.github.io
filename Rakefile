@@ -15,13 +15,13 @@ task :generate do
 end
 
 
-desc "Generate and publish blog to master" # edited, swapping gh-pages -> master, and master -> servant
+desc "Generate and publish blog to master" # publish on master, use servant as raw
 task :publish => [:generate] do
   Dir.mktmpdir do |tmp|
-    system "mv _site/* #{tmp}"
+    system "robocopy _site #{tmp} /E /MOVE > nul"
     system "git checkout -B master"
-    system "rm -rf *"
-    system "mv #{tmp}/* ."
+    system "git rm -rfq *"
+    system "robocopy #{tmp} . /E /MOVE > nul"
     message = "Site updated at #{Time.now.utc}"
     system "git add ."
     system "git commit -am \"#{message}\""
