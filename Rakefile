@@ -20,11 +20,11 @@ task :publish => [:generate] do
   Dir.mktmpdir do |tmp|
     system "robocopy _site #{tmp} /E /MOVE > nul"
     system "git checkout -B master"
-    system "rm -rf -rq *"
+    system "git -rm -rq *"
     system "robocopy #{tmp} . /E /MOVE > nul"
     message = "Site updated at #{Time.now.utc}"
     system "git add ."
-    system "git commit -am #{message}"
+    system "git commit -am \"#{message}\""
     system "git push origin master --force"
     system "git checkout servant"
     system "echo yolo"
