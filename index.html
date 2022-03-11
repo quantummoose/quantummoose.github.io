@@ -1,23 +1,230 @@
----
-layout: default
-title: blog
----
-<!-- longterm goal - add menu like: https://github.com/victorvoid/space-jekyll-template -->
+<!DOCTYPE html>
+<html>
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="shortcut icon" href="/assets/img/favicon.png">
+  <!-- favicon stuff
+  <link rel="shortcut icon" href="/favicon.ico">
+  <link rel="shortcut icon" type="image/png" href="assets/favicon.png"> -->
+
+  <title>blog</title>
+  <meta name="description" content="psychology and data science">
+
+  <!-- Google Fonts loaded here depending on setting in _data/options.yml true loads font, blank does not-->
+  
+    <link href='//fonts.googleapis.com/css?family=Lato:400,400italic' rel='stylesheet' type='text/css'>
+  
+
+  <!-- Load up MathJax script if needed ... specify in /_data/options.yml file-->
+  
+    
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      extensions: [
+        "MathMenu.js",
+        "MathZoom.js",
+        "AssistiveMML.js",
+        "a11y/accessibility-menu.js"
+      ],
+      jax: ["input/TeX", "output/CommonHTML"],
+      TeX: {
+        extensions: [
+          "AMSmath.js",
+          "AMSsymbols.js",
+          "noErrors.js",
+          "noUndefined.js",
+        ]
+      }
+    });
+  </script>
+  
+  <script type="text/javascript" async
+    src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML">
+  </script>
+  
+   <!--   <script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script> -->
+  
+
+  <link rel="stylesheet" type="text/css" href="/css/tufte.css">
+  <!-- <link rel="stylesheet" type="text/css" href="/css/print.css" media="print"> -->
+
+  <link rel="canonical" href="/">
+
+  <link rel="alternate" type="application/rss+xml" title="dominic mussack" href="/feed.xml" />
+</head>
+
+  <body>
+    <!--- Header and nav template site-wide -->
+
+<header>
+    <nav class="group">
+      <a href="/"><img class="circular--square" src="/assets/img/llama_self.jpg" alt="CH"></a>
+    	
+    		
+      
+    		
+    		    
+    		      <a href="/about">about</a>
+    		    
+    	    
+      
+    		
+      
+    		
+      
+    		
+    		    
+    		      <a class="active" href="/" class="active">blog</a>
+    		    
+    	    
+      
+    		
+      
+    		
+    		    
+    		      <a href="/css/print.css"></a>
+    		    
+    	    
+      
+    		
+      
+	</nav>
+</header>
+
+    <article class="group">
+      <!-- longterm goal - add menu like: https://github.com/victorvoid/space-jekyll-template -->
 <!--subheader -->
 
 <ul class="content-listing ">
-  {% for post in site.posts %}
+  
       <li class="listing">
         <hr class="slender">
-        <a href="{{ post.url | prepend: site.baseurl }}"><h3 class="contrast">{{ post.title }}</h3></a>
-        {% if post.tagline %}
-          <br><span class="smaller"> &#9758; {{ post.tagline }}</span> <br/>
-        {% endif %}
+        <a href="/articles/22/psychometric-preprocessing"><h3 class="contrast">Psychometrics and preprocessing</h3></a>
+        
 
 
       </li>
-  {% endfor %}
+  
+      <li class="listing">
+        <hr class="slender">
+        <a href="/articles/22/checklists"><h3 class="contrast">Checklists and forms</h3></a>
+        
+
+
+      </li>
+  
+      <li class="listing">
+        <hr class="slender">
+        <a href="/articles/18/summer-statistics"><h3 class="contrast">Summer course in statistics</h3></a>
+        
+          <br><span class="smaller"> &#9758; My first experience being main instructor.</span> <br/>
+        
+
+
+      </li>
+  
+      <li class="listing">
+        <hr class="slender">
+        <a href="/articles/17/bistable"><h3 class="contrast">Bistable perception</h3></a>
+        
+
+
+      </li>
+  
+      <li class="listing">
+        <hr class="slender">
+        <a href="/articles/17/pls"><h3 class="contrast">Partial Least Squares Regression</h3></a>
+        
+          <br><span class="smaller"> &#9758; Combining PCA and regression</span> <br/>
+        
+
+
+      </li>
+  
+      <li class="listing">
+        <hr class="slender">
+        <a href="/articles/17/representation"><h3 class="contrast">Representation in Psychology</h3></a>
+        
+          <br><span class="smaller"> &#9758; A mathematical notion of cognitive representation.</span> <br/>
+        
+
+
+      </li>
+  
+      <li class="listing">
+        <hr class="slender">
+        <a href="/articles/17/gandalf-as-scholar"><h3 class="contrast">Scholarship in Tolkien's books</h3></a>
+        
+          <br><span class="smaller"> &#9758; I am a turbo-nerd, and people doing research in Middle Earth is cool.</span> <br/>
+        
+
+
+      </li>
+  
+      <li class="listing">
+        <hr class="slender">
+        <a href="/articles/17/safety-games"><h3 class="contrast">Safety and threat in games</h3></a>
+        
+
+
+      </li>
+  
+      <li class="listing">
+        <hr class="slender">
+        <a href="/articles/17/what-models-say"><h3 class="contrast">Model fitting: testing versus using</h3></a>
+        
+
+
+      </li>
+  
+      <li class="listing">
+        <hr class="slender">
+        <a href="/articles/16/this-blog"><h3 class="contrast">This blog</h3></a>
+        
+          <br><span class="smaller"> &#9758; what am I doing?</span> <br/>
+        
+
+
+      </li>
+  
+      <li class="listing">
+        <hr class="slender">
+        <a href="/articles/16/the-aleph"><h3 class="contrast">The aleph</h3></a>
+        
+
+
+      </li>
+  
 </ul>
 
-<!--           <br><span class="smaller">{{ post.date | date: "%B %-d, %Y" }}</span><br/>
+<!--           <br><span class="smaller"></span><br/>
  -->
+
+    </article>
+    <span class="print-footer">blog - Dominic Mussack</span>
+    <footer>
+
+<hr class="slender">
+  <ul class="footer-links">
+    <!--<li><a href="mailto:hate@spam.net"><span class="icon-mail"></span></a></li>    -->
+    
+      <li>
+        <a href="//www.twitter.com/quantummoose"><span class="icon-twitter"></span></a>
+      </li>
+    
+      <li>
+        <a href="//github.com/quantummoose"><span class="icon-github"></span></a>
+      </li>
+    
+  </ul>
+<div class="credits">
+<span>&copy; 2022 &nbsp;&nbsp;DOMINIC MUSSACK</span></br> <br>
+<span>This site uses the <a href="//github.com/clayh53/tufte-jekyll">Tufte theme </a> in <a href="//jekyllrb.com">Jekyll</a>. Rabbit-Duck favicon by Aenne Brielmann from the <a href="https://thenounproject.com/">Noun Project</a>.</span>
+</div>
+
+</footer>
+
+  </body>
+</html>

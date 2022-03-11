@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="shortcut icon" href="/assets/img/favicon.png">
+  <!-- favicon stuff
+  <link rel="shortcut icon" href="/favicon.ico">
+  <link rel="shortcut icon" type="image/png" href="assets/favicon.png"> -->
+
+  <title>Summer course in statistics</title>
+  <meta name="description" content="Last summer  I taught Introduction to Psychological Measurement and Data Analysis for undergrads, which is my department’s standard intro stats course. While...">
+
+  <!-- Google Fonts loaded here depending on setting in _data/options.yml true loads font, blank does not-->
+  
+    <link href='//fonts.googleapis.com/css?family=Lato:400,400italic' rel='stylesheet' type='text/css'>
+  
+
+  <!-- Load up MathJax script if needed ... specify in /_data/options.yml file-->
+  
+    
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      extensions: [
+        "MathMenu.js",
+        "MathZoom.js",
+        "AssistiveMML.js",
+        "a11y/accessibility-menu.js"
+      ],
+      jax: ["input/TeX", "output/CommonHTML"],
+      TeX: {
+        extensions: [
+          "AMSmath.js",
+          "AMSsymbols.js",
+          "noErrors.js",
+          "noUndefined.js",
+        ]
+      }
+    });
+  </script>
+  
+  <script type="text/javascript" async
+    src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML">
+  </script>
+  
+   <!--   <script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script> -->
+  
+
+  <link rel="stylesheet" type="text/css" href="/css/tufte.css">
+  <!-- <link rel="stylesheet" type="text/css" href="/css/print.css" media="print"> -->
+
+  <link rel="canonical" href="/articles/18/summer-statistics">
+
+  <link rel="alternate" type="application/rss+xml" title="dominic mussack" href="/feed.xml" />
+</head>
+
+  <body>
+    <!--- Header and nav template site-wide -->
+
+<header>
+    <nav class="group">
+      <a href="/"><img class="circular--square" src="/assets/img/llama_self.jpg" alt="CH"></a>
+    	
+    		
+      
+    		
+    		    
+    		      <a href="/about">about</a>
+    		    
+    	    
+      
+    		
+      
+    		
+      
+    		
+    		    
+    		      <a href="/">blog</a>
+    		    
+    	    
+      
+    		
+      
+    		
+    		    
+    		      <a href="/css/print.css"></a>
+    		    
+    	    
+      
+    		
+      
+	</nav>
+</header>
+
+    <article class="group">
+      <h1>Summer course in statistics</h1>
+
+<p><span class="newthought">Last summer</span>  I taught <em>Introduction to Psychological Measurement and Data Analysis</em> for undergrads, which is my department’s standard intro stats course. While I had some experience teaching, it was my first experience teaching a course completely on my own. There are many things I wish I had done differently, but overall I enjoyed and learned a lot from the experience. I love trying to explain difficult concepts, so this was great practice.</p>
+
+<p>One of the most useful things for me at the beginning of the course was to make a <em>course narrative</em>. I learned about <a href="https://www.universityaffairs.ca/career-advice/career-advice-article/syllabus-writing-storytelling/">this idea</a> from Prof. Pachego-Vega (who you should follow on <a href="https://twitter.com/raulpacheco">Twitter</a>), and it helped me shape what I wanted to teach and why. When I first started I had these rather grand visions about what a statistics course should teach.
+<label for="b" class="margin-toggle"> ⊕</label><input type="checkbox" id="b" class="margin-toggle" /><span class="marginnote">I have a lot of opinions about the statistics we teach in these courses. NHST is an alright tool, but I think that teaching that perspective first hurts a student’s longterm statistical learning. This might be a blogpost in of itself… </span> However I quickly realized that would require me to make a lot of new material for students, and would end up swamping my already high workload.</p>
+
+<p>To ease my workload, I used material from other instructors, including the previous summer when another graduate student taught. Some of his material he got from the main instructor for the fall/spring course<label for="one" class="margin-toggle sidenote-number"></label><input type="checkbox" id="one" class="margin-toggle" /><span class="sidenote">I got a lot of content from Brent Carpenter (the previous graduate instructor) and Mark Stellmack </span>. Creating a course from scratch takes an enormous amount of time, and while I made my own lectures it was really useful to use material others had made.</p>
+
+<p>Using other material was probably my main reason for not dramatically restructuring the course. I mostly followed <a href="https://www.amazon.com/Statistics-Unplugged-Sally-Caldwell/dp/0840029438">Statistics Unplugged</a> in terms of content, which is a pretty decent introductory text for the standard intro stats material (it ends on ANOVA, chi-square and regression). Caldwell focuses on going through the calculations by hand, using t-tables and the like, and helping students with anxiety about The Maths. Unfortunately it focuses on a very basic functional understanding of how to use these tests without a super deep understanding of what they mean. While in itself that’s understandable (and where I attempted to fill in with my lectures), it ignores how most statistics is done via computer code these days.
+<label for="one" class="margin-toggle">⊕</label><input type="checkbox" id="one" class="margin-toggle" /><span class="marginnote"><img class="fullwidth" src="/assets/img/porg_scared.png" /><br /><a href="https://twitter.com/libbyrocknrule/status/942562394026504192?lang=en">source</a></span></p>
+
+<p>Teaching programming was my biggest initial debate when designing the course, and I ended up not covering it. A lot of discussions I had with other grad students ended up concerned whether students would get it or not, and if it would just double the workload. I really still don’t know, especially because I think it’s so important as a skill for modern psychology work <em>and</em> something students can use outside of the course itself. If given the chance to teach again I likely will want to incorporate some programming at the expense of other content, possibly using material from the <a href="http://r4ds.had.co.nz/">R for data science</a> or <a href="http://moderndive.com/index.html">Intro to Stats and Data Science via R</a> online texts, or create my own.</p>
+
+<p>One thing I did include was more time initially on graphics and communicating statistical results. I spend some time at the beginning covering <a href="https://www.sfu.ca/cmns/courses/2012/801/1-Readings/Tufte%20Visual%20and%20Statistical%20Thinking.pdf">Tufte</a> and other aspects of graph making. Following that I had a few “mini-project” assignments that required them to perform some basic analysis on real data, including making a simple graph (like a barplot or scatterplot). These assignments allowed me to teach a bit on communicating statistical results and allowed them to go from beginning to end with their newly learned skills. I really enjoyed these projects and would definitely use them again, but possibly refine. Since it was a summer course we ended up having to drop one of them due to time, so it definitely warrants playing with more.</p>
+
+<p>Since my own research rarely uses hypothesis testing, I wanted to also teach some more advanced Bayesian methods, factor analysis (PCA), and regression. Focusing on the concepts, with a few examples, seemed to help them get a good sense of the scope of statistics while also seeing what is common across everything (dealing with uncertainty and patterns in data). The last day covered the replication crisis in psychology, and a bit about how meta-analyses are done, which students seemed really engaged in!</p>
+
+<p>Little errors were possibly the most difficult thing for me, especially given it was a math course. Many of the students (given this is psychology) had taken very little mathematics and had to review a lot of algebra. While I have a degree in mathematics, I’m horrible at in-the-moment computations. Coming up with a new example usually resulted in me fumbling around, but students were usually satisfied by the end of it.</p>
+
+<p>I would love to get the chance to teach the course again, even though it did take a large amount of effort from me. The fact that it was a summer course also meant the whole thing went incredibly quickly. Given the discussions people have been having online about how to improve psychology research, I can see both how important the instructional side is and also how much effort it will take. Given my own experience it goes beyond changing a single course, but can certainly start there.</p>
+
+
+<br> <span>&#8203;<script type="math/tex"> \square </script></span> </br>
+<br><span class="smaller">January 2, 2018</span><br/>
+
+    </article>
+    <span class="print-footer">Summer course in statistics - January 2, 2018 - Dominic Mussack</span>
+    <footer>
+
+<hr class="slender">
+  <ul class="footer-links">
+    <!--<li><a href="mailto:hate@spam.net"><span class="icon-mail"></span></a></li>    -->
+    
+      <li>
+        <a href="//www.twitter.com/quantummoose"><span class="icon-twitter"></span></a>
+      </li>
+    
+      <li>
+        <a href="//github.com/quantummoose"><span class="icon-github"></span></a>
+      </li>
+    
+  </ul>
+<div class="credits">
+<span>&copy; 2022 &nbsp;&nbsp;DOMINIC MUSSACK</span></br> <br>
+<span>This site uses the <a href="//github.com/clayh53/tufte-jekyll">Tufte theme </a> in <a href="//jekyllrb.com">Jekyll</a>. Rabbit-Duck favicon by Aenne Brielmann from the <a href="https://thenounproject.com/">Noun Project</a>.</span>
+</div>
+
+</footer>
+
+  </body>
+</html>

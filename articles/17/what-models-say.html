@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="shortcut icon" href="/assets/img/favicon.png">
+  <!-- favicon stuff
+  <link rel="shortcut icon" href="/favicon.ico">
+  <link rel="shortcut icon" type="image/png" href="assets/favicon.png"> -->
+
+  <title>Model fitting: testing versus using</title>
+  <meta name="description" content="I’ve been dwelling  recently on what a model does, in terms of how it can be used and what it means. In particular, Mathematical Psychology: An elementary in...">
+
+  <!-- Google Fonts loaded here depending on setting in _data/options.yml true loads font, blank does not-->
+  
+    <link href='//fonts.googleapis.com/css?family=Lato:400,400italic' rel='stylesheet' type='text/css'>
+  
+
+  <!-- Load up MathJax script if needed ... specify in /_data/options.yml file-->
+  
+    
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      extensions: [
+        "MathMenu.js",
+        "MathZoom.js",
+        "AssistiveMML.js",
+        "a11y/accessibility-menu.js"
+      ],
+      jax: ["input/TeX", "output/CommonHTML"],
+      TeX: {
+        extensions: [
+          "AMSmath.js",
+          "AMSsymbols.js",
+          "noErrors.js",
+          "noUndefined.js",
+        ]
+      }
+    });
+  </script>
+  
+  <script type="text/javascript" async
+    src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML">
+  </script>
+  
+   <!--   <script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script> -->
+  
+
+  <link rel="stylesheet" type="text/css" href="/css/tufte.css">
+  <!-- <link rel="stylesheet" type="text/css" href="/css/print.css" media="print"> -->
+
+  <link rel="canonical" href="/articles/17/what-models-say">
+
+  <link rel="alternate" type="application/rss+xml" title="dominic mussack" href="/feed.xml" />
+</head>
+
+  <body>
+    <!--- Header and nav template site-wide -->
+
+<header>
+    <nav class="group">
+      <a href="/"><img class="circular--square" src="/assets/img/llama_self.jpg" alt="CH"></a>
+    	
+    		
+      
+    		
+    		    
+    		      <a href="/about">about</a>
+    		    
+    	    
+      
+    		
+      
+    		
+      
+    		
+    		    
+    		      <a href="/">blog</a>
+    		    
+    	    
+      
+    		
+      
+    		
+    		    
+    		      <a href="/css/print.css"></a>
+    		    
+    	    
+      
+    		
+      
+	</nav>
+</header>
+
+    <article class="group">
+      <h1>Model fitting: testing versus using</h1>
+
+<p><span class="newthought">I’ve been dwelling</span>  recently on what a model does, in terms of how it can be used and what it means. In particular, <em>Mathematical Psychology: An elementary introduction</em><label for="one" class="margin-toggle sidenote-number"></label><input type="checkbox" id="one" class="margin-toggle" /><span class="sidenote">By Coombs, Dawes, and Tversky from 1970 </span>, describes two very different ways of using a model that I want to talk about here.</p>
+
+<p><label for="zero" class="margin-toggle"> ⊕</label><input type="checkbox" id="zero" class="margin-toggle" /><span class="marginnote"><em>“For such a model there is no need to ask the question 'Is the model true?'. If 'truth' is to be the 'whole truth' the answer must be 'No'. The only question of interest is 'Is the model illuminating and useful?”</em> - <a href="https://en.wikipedia.org/wiki/All_models_are_wrong#Quotations_of_George_Box">George Box</a>  </span>
+<a href="https://en.wikipedia.org/wiki/All_models_are_wrong">All models are wrong</a>. With that out of the way, it’s important to then realize that models can be more or less useful in different ways. Newtonian theories are incredibly useful, and even if quantum or relativistic models are technically “more right” in some sense, they might be less useful practically. Same goes for trying to have an overly detailed neural model of behavior when you’re not actually making a claim about neurons or measuring neural activity. This can easily encourage <a href="https://en.wikipedia.org/wiki/Overfitting">overfitting</a> given all those extra parameters, and might not help you learn anything.</p>
+
+<p>Any model with parameters you have to fit to data, and you can generally then test that fit. However the question you have isn’t always solved by a fit - often you don’t care really if the model is correct or not but rather what the parameter fit tells you. Coombs, Dawes, and Tvsersky give an interesting example comparing testing a model’s fit to test a theory versus using the model as a method of data analysis to extract information.</p>
+
+<p><label for="one" class="margin-toggle">⊕</label><input type="checkbox" id="one" class="margin-toggle" /><span class="marginnote"><img class="fullwidth" src="/assets/img/models_say/markovgif2.gif" /><br />There’s a really good <a href="http://setosa.io/ev/markov-chains/">interactive introduction to Markov Chains here</a>. I’d also suggest looking at all the other tutorials there.</span>
+<span class="newthought">Markov chains</span>  are really useful for a range of applications, since they’re so easy to analyze. Let’s say you have an experiment where the subject ran through multiple trials. Now you might want to see whether performance subsequent trials <em>n</em> and <em>n+1</em> are correlated - that is whether a Markov chain actually fits the data.</p>
+
+<p>If a Markov chain fits, then something from each trial is impacting the next. This can easily be the case in many cognitive psychology tasks, and can imply something about the cognitive processes involved in the experiment For example, there might be “interference” from the previous trial due to working memory stuff.</p>
+
+<p><label for="two" class="margin-toggle">⊕</label><input type="checkbox" id="two" class="margin-toggle" /><span class="marginnote"><img class="fullwidth" src="/assets/img/models_say/kinematicDiagram.png" /><br />An example Markov chain from the development of an <a href="http://college.holycross.edu/faculty/kprestwi/behavior/e&amp;be_notes/E&amp;BE_ethograms.pdf">ethogram</a>, called a kinematic diagram in ethology. Here the different states are different behaviors, and the interest is in seeing how it changes.</span>
+However you might not want to actually be <em>testing</em> a Markov assumption per say, but just using it as a way to get at the trial by trial (or time by time) correlations in the data. This is common in <a href="https://en.wikipedia.org/wiki/Ethology">ethological</a> research, where the question isn’t whether the behavior is best fit by a Markov chain, but using that assumption to help analyze behavior.</p>
+
+<p>The second part is really important I think, as basically every data analysis method does this. Fitting a gaussian is less interesting than talking about the mean and standard deviation. The drift diffusion model can be fit to almost every set of reaction time data, so the real question is what it helps you say about the parameters.</p>
+
+<p>Of course, the model could be so off that the parameters are completely uninterpretable. Practice safe analysis and check your assumptions!</p>
+
+
+<br> <span>&#8203;<script type="math/tex"> \square </script></span> </br>
+<br><span class="smaller">January 1, 2017</span><br/>
+
+    </article>
+    <span class="print-footer">Model fitting: testing versus using - January 1, 2017 - Dominic Mussack</span>
+    <footer>
+
+<hr class="slender">
+  <ul class="footer-links">
+    <!--<li><a href="mailto:hate@spam.net"><span class="icon-mail"></span></a></li>    -->
+    
+      <li>
+        <a href="//www.twitter.com/quantummoose"><span class="icon-twitter"></span></a>
+      </li>
+    
+      <li>
+        <a href="//github.com/quantummoose"><span class="icon-github"></span></a>
+      </li>
+    
+  </ul>
+<div class="credits">
+<span>&copy; 2022 &nbsp;&nbsp;DOMINIC MUSSACK</span></br> <br>
+<span>This site uses the <a href="//github.com/clayh53/tufte-jekyll">Tufte theme </a> in <a href="//jekyllrb.com">Jekyll</a>. Rabbit-Duck favicon by Aenne Brielmann from the <a href="https://thenounproject.com/">Noun Project</a>.</span>
+</div>
+
+</footer>
+
+  </body>
+</html>

@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="shortcut icon" href="/assets/img/favicon.png">
+  <!-- favicon stuff
+  <link rel="shortcut icon" href="/favicon.ico">
+  <link rel="shortcut icon" type="image/png" href="assets/favicon.png"> -->
+
+  <title>Bistable perception</title>
+  <meta name="description" content="The little favicon I use for my webpage is a version of the rabbit duck illusion⊕This rabbit-duck’s source.; seen from one way it’s a rabbit, and seen from a...">
+
+  <!-- Google Fonts loaded here depending on setting in _data/options.yml true loads font, blank does not-->
+  
+    <link href='//fonts.googleapis.com/css?family=Lato:400,400italic' rel='stylesheet' type='text/css'>
+  
+
+  <!-- Load up MathJax script if needed ... specify in /_data/options.yml file-->
+  
+    
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      extensions: [
+        "MathMenu.js",
+        "MathZoom.js",
+        "AssistiveMML.js",
+        "a11y/accessibility-menu.js"
+      ],
+      jax: ["input/TeX", "output/CommonHTML"],
+      TeX: {
+        extensions: [
+          "AMSmath.js",
+          "AMSsymbols.js",
+          "noErrors.js",
+          "noUndefined.js",
+        ]
+      }
+    });
+  </script>
+  
+  <script type="text/javascript" async
+    src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML">
+  </script>
+  
+   <!--   <script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script> -->
+  
+
+  <link rel="stylesheet" type="text/css" href="/css/tufte.css">
+  <!-- <link rel="stylesheet" type="text/css" href="/css/print.css" media="print"> -->
+
+  <link rel="canonical" href="/articles/17/bistable">
+
+  <link rel="alternate" type="application/rss+xml" title="dominic mussack" href="/feed.xml" />
+</head>
+
+  <body>
+    <!--- Header and nav template site-wide -->
+
+<header>
+    <nav class="group">
+      <a href="/"><img class="circular--square" src="/assets/img/llama_self.jpg" alt="CH"></a>
+    	
+    		
+      
+    		
+    		    
+    		      <a href="/about">about</a>
+    		    
+    	    
+      
+    		
+      
+    		
+      
+    		
+    		    
+    		      <a href="/">blog</a>
+    		    
+    	    
+      
+    		
+      
+    		
+    		    
+    		      <a href="/css/print.css"></a>
+    		    
+    	    
+      
+    		
+      
+	</nav>
+</header>
+
+    <article class="group">
+      <h1>Bistable perception</h1>
+
+<p>The little favicon I use for my webpage is a version of the rabbit duck illusion<label for="one" class="margin-toggle">⊕</label><input type="checkbox" id="one" class="margin-toggle" /><span class="marginnote"><img class="fullwidth" src="/assets/img/bistable/favicon_2.png" /><br /><a href="https://thenounproject.com/term/rabbit-duck-illusion/85397/">This rabbit-duck’s source.</a></span>; seen from one way it’s a rabbit, and seen from another it’s a duck. However it’s hard to impossible to see it as both at the same time. This phenomenon is often called <em>bistable perception</em>, where the percept that you see flips between two stable images. The duck rabbit example was introduced early on by <a href="http://www.dead-philosophers.com/?p=422">Wittgenstein</a>, who himself was unsure how to explain the illusion.</p>
+
+<p>Bistability is, to me, one of the most interesting things in perception. A simpler example would be the <a href="https://en.wikipedia.org/wiki/Necker_cube">Necker cube</a>, which can be seen “popped in” or “popped out”.</p>
+
+<figure><img src="/assets/img/bistable/Necker_cube.svg" /><figcaption class="maincolumn-figure"></figcaption></figure>
+<p><label for="two" class="margin-toggle">⊕</label><input type="checkbox" id="two" class="margin-toggle" /><span class="marginnote"><img class="fullwidth" src="/assets/img/bistable/Cube1.svg" /><br /></span>
+<label for="three" class="margin-toggle">⊕</label><input type="checkbox" id="three" class="margin-toggle" /><span class="marginnote"><img class="fullwidth" src="/assets/img/bistable/Cube2.svg" /><br /></span></p>
+
+<p>If we look at the two cube images with “hidden lines”, we can see how each percept can come about. The cube can be seen as either facing forward and down, or forward and up. Not everyone sees each percept right away, but most people can “force” themselves to see alternatives if they try. I’m not sure what I exactly do when I force one or the other percept, but it’s clearly difficult and seems to take some sort of mental effort. We cannot force one of the percepts forever, and eventually the mental effort is “released” and the cube flips.</p>
+
+<p>What’s the explanation for this flipping? We think of it from a Bayesian, or probabilistic inference, view of human vision. The goal of vision is to invert the image that hits our eyes; we don’t care about the photons that hit our retinal, we care about the objects out in the world. We want to <em>infer</em> what we see, and deal with <em>noise and uncertainty</em> in the image.</p>
+
+<figure class="fullwidth"><img src="/assets/img/bistable/inverse_vision.png" /><figcaption>Mind inverting sight. Source unfortunately lost for me.</figcaption></figure>
+
+<p>However, there’s a lot of ambiguity in the image that we see. Consider a simple example of perceiving a cube, below in (a). In this case there’s no alternative percepts, but consider why we don’t see any. This flat 2D image could have been made by any of the wireframe images in (c); any of these wireframe projections (shadows of the 3D object) could have produced the 2D image from (a).</p>
+
+<figure><img src="/assets/img/bistable/bayes1cube.png" /><figcaption class="maincolumn-figure">Image from Kersten and Yuille&#8217;s 2003 paper, Bayesian models of object perception</figcaption></figure>
+
+<p>Any of the wireframes from (c) are <em>consistent with</em> the image we get. However we only perceive the one image; why? The Bayesian solution to this problem is to use <em>prior knowledge about the probability of the world</em>. For above, we use the fact that a cube is just more likely than those other weird objects.</p>
+
+<p>How does this help us understand bistability? Well, what if we cannot reduce our uncertainty between two, crisp, distinct, and non-overlapping interpretations of an image? If we could somehow average our interpretations, we might. But in this case we really can’t (what’s the average between a rabbit and a duck?). The flipping might be due to the two interpretations being highly uncertain, but our brain needs to treat one as correct <em>at a given time</em><label for="one" class="margin-toggle sidenote-number"></label><input type="checkbox" id="one" class="margin-toggle" /><span class="sidenote">There might be an ecological or affordance-based reason for this; if we act we need to at least pretend certainty. If we need certainty in our interpretation of space for acting, but we can’t reduce it, we push uncertainty across time rather than space. </span>.</p>
+
+<p>What’s interesting is if we change our prior we get different times spent on either interpretation. <a href="http://vision.psych.umn.edu/users/schrater/Papers/JOV17submitted.pdf">Sundareswara and Schrater (2005)</a> experimentally manipulated people’s prior by changing the background for the cube, and found that the time spent in one interpretation was manipulated to “align” more often with the background.</p>
+
+<p><label for="four" class="margin-toggle">⊕</label><input type="checkbox" id="four" class="margin-toggle" /><span class="marginnote"><img class="fullwidth" src="/assets/img/bistable/prior_cube1.png" /><br /></span></p>
+<figure><img src="/assets/img/bistable/prior_cube2.png" /><figcaption class="maincolumn-figure">Flip up bias (top). Flip down bias (left)</figcaption></figure>
+
+<p>The effect doesn’t feel symmetric to me, and you still flip back and forth. But the background definitely feels like it impacts the time in either, and how easy it is to get into either “interpretation”.</p>
+
+<p>Bistability is one of the more interesting topics in perception for me because it directly discusses consciousness, but in a way that we can scientifically investigate. Why is our <em>subjective experience</em> the way it is? Investigations like these are ways to help answer that rather deep question.</p>
+
+
+<br> <span>&#8203;<script type="math/tex"> \square </script></span> </br>
+<br><span class="smaller">July 15, 2017</span><br/>
+
+    </article>
+    <span class="print-footer">Bistable perception - July 15, 2017 - Dominic Mussack</span>
+    <footer>
+
+<hr class="slender">
+  <ul class="footer-links">
+    <!--<li><a href="mailto:hate@spam.net"><span class="icon-mail"></span></a></li>    -->
+    
+      <li>
+        <a href="//www.twitter.com/quantummoose"><span class="icon-twitter"></span></a>
+      </li>
+    
+      <li>
+        <a href="//github.com/quantummoose"><span class="icon-github"></span></a>
+      </li>
+    
+  </ul>
+<div class="credits">
+<span>&copy; 2022 &nbsp;&nbsp;DOMINIC MUSSACK</span></br> <br>
+<span>This site uses the <a href="//github.com/clayh53/tufte-jekyll">Tufte theme </a> in <a href="//jekyllrb.com">Jekyll</a>. Rabbit-Duck favicon by Aenne Brielmann from the <a href="https://thenounproject.com/">Noun Project</a>.</span>
+</div>
+
+</footer>
+
+  </body>
+</html>

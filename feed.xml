@@ -1,31 +1,371 @@
----
-layout: null
-nav_exclude: true
----
 <?xml version="1.0" encoding="UTF-8"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>{{ site.title | xml_escape }}</title>
-    <description>{{ site.description | xml_escape }}</description>
-    <link>{{ site.url }}{{ site.baseurl }}/</link>
-    <atom:link href="{{ "/feed.xml" | prepend: site.baseurl | prepend: site.url }}" rel="self" type="application/rss+xml"/>
-    <pubDate>{{ site.time | date_to_rfc822 }}</pubDate>
-    <lastBuildDate>{{ site.time | date_to_rfc822 }}</lastBuildDate>
-    <generator>Jekyll v{{ jekyll.version }}</generator>
-    {% for post in site.posts limit:10 %}
+    <title>dominic mussack</title>
+    <description>psychology and data science</description>
+    <link>/</link>
+    <atom:link href="/feed.xml" rel="self" type="application/rss+xml"/>
+    <pubDate>Fri, 11 Mar 2022 22:29:31 +0000</pubDate>
+    <lastBuildDate>Fri, 11 Mar 2022 22:29:31 +0000</lastBuildDate>
+    <generator>Jekyll v4.2.1</generator>
+    
       <item>
-        <title>{{ post.title | xml_escape }}</title>
-        <description>{{ post.content | xml_escape }}</description>
-        <pubDate>{{ post.date | date_to_rfc822 }}</pubDate>
-        <link>{{ post.url | prepend: site.baseurl | prepend: site.url }}</link>
-        <guid isPermaLink="true">{{ post.url | prepend: site.baseurl | prepend: site.url }}</guid>
-        {% for tag in post.tags %}
-        <category>{{ tag | xml_escape }}</category>
-        {% endfor %}
-        {% for cat in post.categories %}
-        <category>{{ cat | xml_escape }}</category>
-        {% endfor %}
+        <title>Psychometrics and preprocessing</title>
+        <description>&lt;p&gt;In psychometrics, measures are often made without regards to the particular question or experiment they might be used for. The quantification of “good” measures in psychometrics are often separate from the rest of the work. For example, a standard statistic used to determine the quality of a measure is &lt;a href=&quot;https://en.wikipedia.org/wiki/Cronbach%27s_alpha&quot;&gt;Chronbach’s alpha&lt;/a&gt;&lt;label for=&quot;one&quot; class=&quot;margin-toggle sidenote-number&quot;&gt;&lt;/label&gt;&lt;input type=&quot;checkbox&quot; id=&quot;one&quot; class=&quot;margin-toggle&quot; /&gt;&lt;span class=&quot;sidenote&quot;&gt;There’s a good text covering this topic &lt;a href=&quot;https://personality-project.org/r/book/Chapter7.pdf&quot;&gt;here&lt;/a&gt; &lt;/span&gt;, which is a measure of the reliability of a test. There’s a whole discussion in the literature on the use and misuse and whether it’s a good measure, and I don’t care about that in particular. For myself, I dislike doing this kind of special case modeling.&lt;/p&gt;
+
+&lt;p&gt;Much like Cohan’s d metric, or other simple statistics used throughout psychometrics or signal-detection theory, the usefulness of this equation draws particularly on the idea of &lt;em&gt;what model you assume&lt;/em&gt; for the data. In many of these examples, these statistics make assumptions of simple linearity and normal distributions. This can be fine in a lot of cases – it’s like preprocessing&lt;label for=&quot;two&quot; class=&quot;margin-toggle sidenote-number&quot;&gt;&lt;/label&gt;&lt;input type=&quot;checkbox&quot; id=&quot;two&quot; class=&quot;margin-toggle&quot; /&gt;&lt;span class=&quot;sidenote&quot;&gt;Expanded on below &lt;/span&gt; – but it breaks when the assumptions are broken. In that case it can (and should) be integrated together with good modeling.&lt;/p&gt;
+
+&lt;p&gt;Consider a probabilistic modeling approach, i.e., a &lt;a href=&quot;https://betanalpha.github.io/assets/case_studies/principled_bayesian_workflow.html&quot;&gt;Bayesian workflow&lt;/a&gt;. In creating the observation model of the phenomena, we need to specify the &lt;em&gt;meaningfulness&lt;/em&gt; of the measurement instrament. There’s not a strict distinction between modeling and measurement. In both cases you make a set of statistical assumptions concerning the data generation process. They’re part of the same data analysis process.&lt;/p&gt;
+
+&lt;p&gt;This is same as the data model, a topic often ignored unless you work with databases. The structure of the data, as it’s collected and stored, requires us to precisely define our ontology. &lt;a href=&quot;https://cran.r-project.org/web/packages/tidyr/vignettes/tidy-data.html&quot;&gt;Tidy data&lt;/a&gt;, for example, requires specifying what the values and repeated samples are. For example, consider whether you should treat experimentally collected data as a time series or as interchangable (which changes what “a sample” is). This also depends on the theoretical assumptions we have concerning the observation process of the phenomena.&lt;/p&gt;
+
+&lt;p&gt;What’s interesting is that these are often thought of as distinct or separate. The particular analysis concerning a research question is often treated as independent from those concerning the data measurement and model&lt;label for=&quot;three&quot; class=&quot;margin-toggle sidenote-number&quot;&gt;&lt;/label&gt;&lt;input type=&quot;checkbox&quot; id=&quot;three&quot; class=&quot;margin-toggle&quot; /&gt;&lt;span class=&quot;sidenote&quot;&gt;On a side note, it’s interesting how the drift diffusion model has become a type of preprocessing step for some analyses – almost like a data transformation &lt;/span&gt;. That is, the measurement is easy to decompose from other parts, and we can recombine them later without concern. This isn’t always the case of course, but it can be for a lot of data preprocessing, especially when the underlying measurement process is incredibly well understood&lt;label for=&quot;four&quot; class=&quot;margin-toggle sidenote-number&quot;&gt;&lt;/label&gt;&lt;input type=&quot;checkbox&quot; id=&quot;four&quot; class=&quot;margin-toggle&quot; /&gt;&lt;span class=&quot;sidenote&quot;&gt;A good example could be heart rate or other more biological or physical measures, where the signal processing can be sometimes physically embedded in the hardware. &lt;/span&gt;. Technically a bandpass filter makes modeling assumptions, but if we understand the measurement, and the error is low, it’s fine.&lt;/p&gt;
+
+&lt;p&gt;On a random note, a related idea in control theory is the &lt;a href=&quot;https://en.wikipedia.org/wiki/Separation_principle&quot;&gt;separation principle&lt;/a&gt;, that is the idea that control and estimation can (in some instances) be decomposed. If the separation principle holds for a given control problem, then the inference problem (figuring out “what is there”) and the decision problem (figuring out “what to do”) can be solved independently.&lt;/p&gt;
+
+&lt;p&gt;Of course good research always considers all the pieces together. But research always makes peripheral assumptions that can’t be written down. The best thing is to iteratively improve when it is shown to be a problem.&lt;/p&gt;
+</description>
+        <pubDate>Fri, 11 Mar 2022 00:00:00 +0000</pubDate>
+        <link>/articles/22/psychometric-preprocessing</link>
+        <guid isPermaLink="true">/articles/22/psychometric-preprocessing</guid>
+        
+        
+        <category>research</category>
+        
       </item>
-    {% endfor %}
+    
+      <item>
+        <title>Checklists and forms</title>
+        <description>&lt;p&gt;My memory has been trash as of late. Actually ever since grad school I realized how limited my memory was. I was also getting older of course, and developing migraines and such. They really don’t talk about how much mental health problems (esp depression and anxiety) just can completely destroy memory and executive function.&lt;/p&gt;
+
+&lt;p&gt;But anyways, it really forced me to be more deliberate in terms of planning, notetaking, and a few other things that ended up being useful skills overall. Since I couldn’t remember anything after a meeting I had to write everything down, summarize it to everyone at the end, and even write up a short summary. Took extra time and didn’t always keep to it, but it did help.&lt;/p&gt;
+
+&lt;p&gt;The same was true of planning. I had to be really deliberate in scheduling out my days and weeks to compensate for being unable to  shift tasks. Realized I had to plan to plan, and schedule for scheduling, put in extra time just to switch tasks. I even joked with my therapist about scheduling time for existential dread&lt;label for=&quot;b&quot; class=&quot;margin-toggle&quot;&gt; ⊕&lt;/label&gt;&lt;input type=&quot;checkbox&quot; id=&quot;b&quot; class=&quot;margin-toggle&quot; /&gt;&lt;span class=&quot;marginnote&quot;&gt;It did not always work lolsob &lt;/span&gt;.&lt;/p&gt;
+
+&lt;p&gt;One particular trick I liked was having google forms used for checklists in regular or route work. The software developers I worked with did this for QA, so when doing experimental designs we tried the same thing. Making checklists for everything is common among doctors and engineers&lt;label for=&quot;d&quot; class=&quot;margin-toggle&quot;&gt; ⊕&lt;/label&gt;&lt;input type=&quot;checkbox&quot; id=&quot;d&quot; class=&quot;margin-toggle&quot; /&gt;&lt;span class=&quot;marginnote&quot;&gt;As far as I know. There was some blog somewhere that talked about doing this in research, which I can’t find right now. &lt;/span&gt;, since it needs to be consistent even when you’re tired and can’t think. In research checklists makes sense for a lot of things, such as making graphs or running subjects. Having this checklist be in a google form specifically means that you’ve collected all that data, and can produce a &lt;a href=&quot;https://en.wikipedia.org/wiki/Behavior-shaping_constraint&quot;&gt;forcing function&lt;/a&gt; where you can force someone to answer a questions before continuing.&lt;/p&gt;
+
+&lt;p&gt;While applying this to work is obvious, using google forms for more personal things was something I hadn’t considered until my partner recently started using it. They used a google form to help work through some practices suggested by their therapist. I thought it was a great idea when they told me, so I started using it for some of my own mental health practices as well. Specifically, making a simple google form, and then saving the webpage on my phone as a quick link. Clicking it opens the form and lets me go through a bit of CBT or journaling or whatever more easily. Not a bad way to go around learning to code some wellness app.&lt;/p&gt;
+</description>
+        <pubDate>Fri, 04 Mar 2022 00:00:00 +0000</pubDate>
+        <link>/articles/22/checklists</link>
+        <guid isPermaLink="true">/articles/22/checklists</guid>
+        
+        
+        <category>notes</category>
+        
+      </item>
+    
+      <item>
+        <title>Summer course in statistics</title>
+        <description>&lt;p&gt;&lt;span class=&quot;newthought&quot;&gt;Last summer&lt;/span&gt;  I taught &lt;em&gt;Introduction to Psychological Measurement and Data Analysis&lt;/em&gt; for undergrads, which is my department’s standard intro stats course. While I had some experience teaching, it was my first experience teaching a course completely on my own. There are many things I wish I had done differently, but overall I enjoyed and learned a lot from the experience. I love trying to explain difficult concepts, so this was great practice.&lt;/p&gt;
+
+&lt;p&gt;One of the most useful things for me at the beginning of the course was to make a &lt;em&gt;course narrative&lt;/em&gt;. I learned about &lt;a href=&quot;https://www.universityaffairs.ca/career-advice/career-advice-article/syllabus-writing-storytelling/&quot;&gt;this idea&lt;/a&gt; from Prof. Pachego-Vega (who you should follow on &lt;a href=&quot;https://twitter.com/raulpacheco&quot;&gt;Twitter&lt;/a&gt;), and it helped me shape what I wanted to teach and why. When I first started I had these rather grand visions about what a statistics course should teach.
+&lt;label for=&quot;b&quot; class=&quot;margin-toggle&quot;&gt; ⊕&lt;/label&gt;&lt;input type=&quot;checkbox&quot; id=&quot;b&quot; class=&quot;margin-toggle&quot; /&gt;&lt;span class=&quot;marginnote&quot;&gt;I have a lot of opinions about the statistics we teach in these courses. NHST is an alright tool, but I think that teaching that perspective first hurts a student’s longterm statistical learning. This might be a blogpost in of itself… &lt;/span&gt; However I quickly realized that would require me to make a lot of new material for students, and would end up swamping my already high workload.&lt;/p&gt;
+
+&lt;p&gt;To ease my workload, I used material from other instructors, including the previous summer when another graduate student taught. Some of his material he got from the main instructor for the fall/spring course&lt;label for=&quot;one&quot; class=&quot;margin-toggle sidenote-number&quot;&gt;&lt;/label&gt;&lt;input type=&quot;checkbox&quot; id=&quot;one&quot; class=&quot;margin-toggle&quot; /&gt;&lt;span class=&quot;sidenote&quot;&gt;I got a lot of content from Brent Carpenter (the previous graduate instructor) and Mark Stellmack &lt;/span&gt;. Creating a course from scratch takes an enormous amount of time, and while I made my own lectures it was really useful to use material others had made.&lt;/p&gt;
+
+&lt;p&gt;Using other material was probably my main reason for not dramatically restructuring the course. I mostly followed &lt;a href=&quot;https://www.amazon.com/Statistics-Unplugged-Sally-Caldwell/dp/0840029438&quot;&gt;Statistics Unplugged&lt;/a&gt; in terms of content, which is a pretty decent introductory text for the standard intro stats material (it ends on ANOVA, chi-square and regression). Caldwell focuses on going through the calculations by hand, using t-tables and the like, and helping students with anxiety about The Maths. Unfortunately it focuses on a very basic functional understanding of how to use these tests without a super deep understanding of what they mean. While in itself that’s understandable (and where I attempted to fill in with my lectures), it ignores how most statistics is done via computer code these days.
+&lt;label for=&quot;one&quot; class=&quot;margin-toggle&quot;&gt;⊕&lt;/label&gt;&lt;input type=&quot;checkbox&quot; id=&quot;one&quot; class=&quot;margin-toggle&quot; /&gt;&lt;span class=&quot;marginnote&quot;&gt;&lt;img class=&quot;fullwidth&quot; src=&quot;/assets/img/porg_scared.png&quot; /&gt;&lt;br /&gt;&lt;a href=&quot;https://twitter.com/libbyrocknrule/status/942562394026504192?lang=en&quot;&gt;source&lt;/a&gt;&lt;/span&gt;&lt;/p&gt;
+
+&lt;p&gt;Teaching programming was my biggest initial debate when designing the course, and I ended up not covering it. A lot of discussions I had with other grad students ended up concerned whether students would get it or not, and if it would just double the workload. I really still don’t know, especially because I think it’s so important as a skill for modern psychology work &lt;em&gt;and&lt;/em&gt; something students can use outside of the course itself. If given the chance to teach again I likely will want to incorporate some programming at the expense of other content, possibly using material from the &lt;a href=&quot;http://r4ds.had.co.nz/&quot;&gt;R for data science&lt;/a&gt; or &lt;a href=&quot;http://moderndive.com/index.html&quot;&gt;Intro to Stats and Data Science via R&lt;/a&gt; online texts, or create my own.&lt;/p&gt;
+
+&lt;p&gt;One thing I did include was more time initially on graphics and communicating statistical results. I spend some time at the beginning covering &lt;a href=&quot;https://www.sfu.ca/cmns/courses/2012/801/1-Readings/Tufte%20Visual%20and%20Statistical%20Thinking.pdf&quot;&gt;Tufte&lt;/a&gt; and other aspects of graph making. Following that I had a few “mini-project” assignments that required them to perform some basic analysis on real data, including making a simple graph (like a barplot or scatterplot). These assignments allowed me to teach a bit on communicating statistical results and allowed them to go from beginning to end with their newly learned skills. I really enjoyed these projects and would definitely use them again, but possibly refine. Since it was a summer course we ended up having to drop one of them due to time, so it definitely warrants playing with more.&lt;/p&gt;
+
+&lt;p&gt;Since my own research rarely uses hypothesis testing, I wanted to also teach some more advanced Bayesian methods, factor analysis (PCA), and regression. Focusing on the concepts, with a few examples, seemed to help them get a good sense of the scope of statistics while also seeing what is common across everything (dealing with uncertainty and patterns in data). The last day covered the replication crisis in psychology, and a bit about how meta-analyses are done, which students seemed really engaged in!&lt;/p&gt;
+
+&lt;p&gt;Little errors were possibly the most difficult thing for me, especially given it was a math course. Many of the students (given this is psychology) had taken very little mathematics and had to review a lot of algebra. While I have a degree in mathematics, I’m horrible at in-the-moment computations. Coming up with a new example usually resulted in me fumbling around, but students were usually satisfied by the end of it.&lt;/p&gt;
+
+&lt;p&gt;I would love to get the chance to teach the course again, even though it did take a large amount of effort from me. The fact that it was a summer course also meant the whole thing went incredibly quickly. Given the discussions people have been having online about how to improve psychology research, I can see both how important the instructional side is and also how much effort it will take. Given my own experience it goes beyond changing a single course, but can certainly start there.&lt;/p&gt;
+</description>
+        <pubDate>Tue, 02 Jan 2018 00:00:00 +0000</pubDate>
+        <link>/articles/18/summer-statistics</link>
+        <guid isPermaLink="true">/articles/18/summer-statistics</guid>
+        
+        
+        <category>teaching</category>
+        
+      </item>
+    
+      <item>
+        <title>Bistable perception</title>
+        <description>&lt;p&gt;The little favicon I use for my webpage is a version of the rabbit duck illusion&lt;label for=&quot;one&quot; class=&quot;margin-toggle&quot;&gt;⊕&lt;/label&gt;&lt;input type=&quot;checkbox&quot; id=&quot;one&quot; class=&quot;margin-toggle&quot; /&gt;&lt;span class=&quot;marginnote&quot;&gt;&lt;img class=&quot;fullwidth&quot; src=&quot;/assets/img/bistable/favicon_2.png&quot; /&gt;&lt;br /&gt;&lt;a href=&quot;https://thenounproject.com/term/rabbit-duck-illusion/85397/&quot;&gt;This rabbit-duck’s source.&lt;/a&gt;&lt;/span&gt;; seen from one way it’s a rabbit, and seen from another it’s a duck. However it’s hard to impossible to see it as both at the same time. This phenomenon is often called &lt;em&gt;bistable perception&lt;/em&gt;, where the percept that you see flips between two stable images. The duck rabbit example was introduced early on by &lt;a href=&quot;http://www.dead-philosophers.com/?p=422&quot;&gt;Wittgenstein&lt;/a&gt;, who himself was unsure how to explain the illusion.&lt;/p&gt;
+
+&lt;p&gt;Bistability is, to me, one of the most interesting things in perception. A simpler example would be the &lt;a href=&quot;https://en.wikipedia.org/wiki/Necker_cube&quot;&gt;Necker cube&lt;/a&gt;, which can be seen “popped in” or “popped out”.&lt;/p&gt;
+
+&lt;figure&gt;&lt;img src=&quot;/assets/img/bistable/Necker_cube.svg&quot; /&gt;&lt;figcaption class=&quot;maincolumn-figure&quot;&gt;&lt;/figcaption&gt;&lt;/figure&gt;
+&lt;p&gt;&lt;label for=&quot;two&quot; class=&quot;margin-toggle&quot;&gt;⊕&lt;/label&gt;&lt;input type=&quot;checkbox&quot; id=&quot;two&quot; class=&quot;margin-toggle&quot; /&gt;&lt;span class=&quot;marginnote&quot;&gt;&lt;img class=&quot;fullwidth&quot; src=&quot;/assets/img/bistable/Cube1.svg&quot; /&gt;&lt;br /&gt;&lt;/span&gt;
+&lt;label for=&quot;three&quot; class=&quot;margin-toggle&quot;&gt;⊕&lt;/label&gt;&lt;input type=&quot;checkbox&quot; id=&quot;three&quot; class=&quot;margin-toggle&quot; /&gt;&lt;span class=&quot;marginnote&quot;&gt;&lt;img class=&quot;fullwidth&quot; src=&quot;/assets/img/bistable/Cube2.svg&quot; /&gt;&lt;br /&gt;&lt;/span&gt;&lt;/p&gt;
+
+&lt;p&gt;If we look at the two cube images with “hidden lines”, we can see how each percept can come about. The cube can be seen as either facing forward and down, or forward and up. Not everyone sees each percept right away, but most people can “force” themselves to see alternatives if they try. I’m not sure what I exactly do when I force one or the other percept, but it’s clearly difficult and seems to take some sort of mental effort. We cannot force one of the percepts forever, and eventually the mental effort is “released” and the cube flips.&lt;/p&gt;
+
+&lt;p&gt;What’s the explanation for this flipping? We think of it from a Bayesian, or probabilistic inference, view of human vision. The goal of vision is to invert the image that hits our eyes; we don’t care about the photons that hit our retinal, we care about the objects out in the world. We want to &lt;em&gt;infer&lt;/em&gt; what we see, and deal with &lt;em&gt;noise and uncertainty&lt;/em&gt; in the image.&lt;/p&gt;
+
+&lt;figure class=&quot;fullwidth&quot;&gt;&lt;img src=&quot;/assets/img/bistable/inverse_vision.png&quot; /&gt;&lt;figcaption&gt;Mind inverting sight. Source unfortunately lost for me.&lt;/figcaption&gt;&lt;/figure&gt;
+
+&lt;p&gt;However, there’s a lot of ambiguity in the image that we see. Consider a simple example of perceiving a cube, below in (a). In this case there’s no alternative percepts, but consider why we don’t see any. This flat 2D image could have been made by any of the wireframe images in (c); any of these wireframe projections (shadows of the 3D object) could have produced the 2D image from (a).&lt;/p&gt;
+
+&lt;figure&gt;&lt;img src=&quot;/assets/img/bistable/bayes1cube.png&quot; /&gt;&lt;figcaption class=&quot;maincolumn-figure&quot;&gt;Image from Kersten and Yuille&amp;#8217;s 2003 paper, Bayesian models of object perception&lt;/figcaption&gt;&lt;/figure&gt;
+
+&lt;p&gt;Any of the wireframes from (c) are &lt;em&gt;consistent with&lt;/em&gt; the image we get. However we only perceive the one image; why? The Bayesian solution to this problem is to use &lt;em&gt;prior knowledge about the probability of the world&lt;/em&gt;. For above, we use the fact that a cube is just more likely than those other weird objects.&lt;/p&gt;
+
+&lt;p&gt;How does this help us understand bistability? Well, what if we cannot reduce our uncertainty between two, crisp, distinct, and non-overlapping interpretations of an image? If we could somehow average our interpretations, we might. But in this case we really can’t (what’s the average between a rabbit and a duck?). The flipping might be due to the two interpretations being highly uncertain, but our brain needs to treat one as correct &lt;em&gt;at a given time&lt;/em&gt;&lt;label for=&quot;one&quot; class=&quot;margin-toggle sidenote-number&quot;&gt;&lt;/label&gt;&lt;input type=&quot;checkbox&quot; id=&quot;one&quot; class=&quot;margin-toggle&quot; /&gt;&lt;span class=&quot;sidenote&quot;&gt;There might be an ecological or affordance-based reason for this; if we act we need to at least pretend certainty. If we need certainty in our interpretation of space for acting, but we can’t reduce it, we push uncertainty across time rather than space. &lt;/span&gt;.&lt;/p&gt;
+
+&lt;p&gt;What’s interesting is if we change our prior we get different times spent on either interpretation. &lt;a href=&quot;http://vision.psych.umn.edu/users/schrater/Papers/JOV17submitted.pdf&quot;&gt;Sundareswara and Schrater (2005)&lt;/a&gt; experimentally manipulated people’s prior by changing the background for the cube, and found that the time spent in one interpretation was manipulated to “align” more often with the background.&lt;/p&gt;
+
+&lt;p&gt;&lt;label for=&quot;four&quot; class=&quot;margin-toggle&quot;&gt;⊕&lt;/label&gt;&lt;input type=&quot;checkbox&quot; id=&quot;four&quot; class=&quot;margin-toggle&quot; /&gt;&lt;span class=&quot;marginnote&quot;&gt;&lt;img class=&quot;fullwidth&quot; src=&quot;/assets/img/bistable/prior_cube1.png&quot; /&gt;&lt;br /&gt;&lt;/span&gt;&lt;/p&gt;
+&lt;figure&gt;&lt;img src=&quot;/assets/img/bistable/prior_cube2.png&quot; /&gt;&lt;figcaption class=&quot;maincolumn-figure&quot;&gt;Flip up bias (top). Flip down bias (left)&lt;/figcaption&gt;&lt;/figure&gt;
+
+&lt;p&gt;The effect doesn’t feel symmetric to me, and you still flip back and forth. But the background definitely feels like it impacts the time in either, and how easy it is to get into either “interpretation”.&lt;/p&gt;
+
+&lt;p&gt;Bistability is one of the more interesting topics in perception for me because it directly discusses consciousness, but in a way that we can scientifically investigate. Why is our &lt;em&gt;subjective experience&lt;/em&gt; the way it is? Investigations like these are ways to help answer that rather deep question.&lt;/p&gt;
+</description>
+        <pubDate>Sat, 15 Jul 2017 00:00:00 +0000</pubDate>
+        <link>/articles/17/bistable</link>
+        <guid isPermaLink="true">/articles/17/bistable</guid>
+        
+        
+        <category>research</category>
+        
+      </item>
+    
+      <item>
+        <title>Partial Least Squares Regression</title>
+        <description>&lt;p&gt;I’ve been using &lt;a href=&quot;https://en.wikipedia.org/wiki/Partial_least_squares_regression&quot;&gt;partial least squares&lt;/a&gt; analysis for a while now, but still learning about it. The core idea of PLS is really not complicated at all, but using it appropriately and fully understanding the model takes work.&lt;/p&gt;
+
+&lt;p&gt;What’s the core idea? In short, PLS combines both principle components analysis and standard regression - instead of simply regressing Y against X, you find the best lower dimensions \(Y_{low}\) and \(X_{low}\) such that \(Y_{low}\) regresses against \(X_{low}\). The code for running PLS in MATLAB is very simple, since there’s a built in &lt;a href=&quot;https://www.mathworks.com/help/stats/plsregress.html&quot;&gt;plsregress&lt;/a&gt; function, but it’s a bit obtuse&lt;label for=&quot;one&quot; class=&quot;margin-toggle sidenote-number&quot;&gt;&lt;/label&gt;&lt;input type=&quot;checkbox&quot; id=&quot;one&quot; class=&quot;margin-toggle&quot; /&gt;&lt;span class=&quot;sidenote&quot;&gt;Though this might be due to my own background &lt;/span&gt;. I’m not going to go through &lt;a href=&quot;http://setosa.io/ev/principal-component-analysis/&quot;&gt;PCA&lt;/a&gt; and &lt;a href=&quot;http://setosa.io/ev/ordinary-least-squares-regression/&quot;&gt;regression&lt;/a&gt;; I’m just going to assume we know those things.&lt;/p&gt;
+
+&lt;p&gt;For regression in general, we fit the equation \(Y = \beta   X + \epsilon\) where we want to predict Y from X, using the \(\beta\) regression weights or coefficients. \(\epsilon\) is just the error term here. So let’s assume we want to predict some behavioral response, like reaction time, from some neural signal&lt;label for=&quot;two&quot; class=&quot;margin-toggle sidenote-number&quot;&gt;&lt;/label&gt;&lt;input type=&quot;checkbox&quot; id=&quot;two&quot; class=&quot;margin-toggle&quot; /&gt;&lt;span class=&quot;sidenote&quot;&gt;Assume all the values are centered. &lt;/span&gt;, so reaction time = Y &lt;label for=&quot;three&quot; class=&quot;margin-toggle sidenote-number&quot;&gt;&lt;/label&gt;&lt;input type=&quot;checkbox&quot; id=&quot;three&quot; class=&quot;margin-toggle&quot; /&gt;&lt;span class=&quot;sidenote&quot;&gt;Y is a &lt;em&gt;trial&lt;/em&gt; x 1 vector &lt;/span&gt; and brain signals = X &lt;label for=&quot;four&quot; class=&quot;margin-toggle sidenote-number&quot;&gt;&lt;/label&gt;&lt;input type=&quot;checkbox&quot; id=&quot;four&quot; class=&quot;margin-toggle&quot; /&gt;&lt;span class=&quot;sidenote&quot;&gt;X is a &lt;em&gt;trial&lt;/em&gt; by &lt;em&gt;features&lt;/em&gt; matrix, where features are just number of signals we have on each trial, like average voxel signal &lt;/span&gt;. However, we measure a large amount of different features that may or may not be important. Presumably only some of them are.&lt;/p&gt;
+
+&lt;p&gt;First, let’s generate some fake data in MATLAB:&lt;/p&gt;
+
+&lt;div class=&quot;language-matlab highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c1&quot;&gt;% Generating fake data:&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;ntrials&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;300&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;% Only the hidden state determines response:&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;HiddenState&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;randn&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;ntrials&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;Response&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;HiddenState&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;5&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;randn&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ntrials&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;nb&quot;&gt;plot&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;HiddenState&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Response&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&apos;.&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+
+&lt;span class=&quot;c1&quot;&gt;% Now unrelated noise states:&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;OtherStates&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;randn&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;9&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;ntrials&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;% Project those states into a higher dimension.&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;linproj&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;randn&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;10&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;30&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;XObs&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;HiddenState&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&apos;, OtherStates&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;linproj&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;&lt;label for=&quot;one&quot; class=&quot;margin-toggle&quot;&gt;⊕&lt;/label&gt;&lt;input type=&quot;checkbox&quot; id=&quot;one&quot; class=&quot;margin-toggle&quot; /&gt;&lt;span class=&quot;marginnote&quot;&gt;&lt;img class=&quot;fullwidth&quot; src=&quot;/assets/img/pls/pls1.png&quot; /&gt;&lt;br /&gt;plot(HiddenState, Response, ‘.’)&lt;/span&gt;&lt;/p&gt;
+
+&lt;p&gt;So what did I do here? I created some fake regression data, where our response is predicted from the Hidden State. However, I combined the hidden state with other random states that are unimportant for prediction. &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;linproj&lt;/code&gt; is a matrix that basically puts your 10 states (combined hidden and noise) into a higher level space (30 dimensions). This kinda replicates what often happens to our measurement. We measure a bunch of signals that are highly correlated, with only a few actually important changing states. Now what happens if we go ahead and perform regression, regressing the 30 features of Xobs against the 1 Response?&lt;/p&gt;
+&lt;div class=&quot;language-matlab highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;beta&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;XObs&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;\&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Response&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;% Solve simple regression in matlab.&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;Warning&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Rank&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;deficient&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;rank&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;10&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;tol&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;  &lt;span class=&quot;mf&quot;&gt;1.775230e-11&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;So MATLAB already figured out that most of the dimensions aren’t predictive. We accidentally got back we only have 10 states. Our regression here actually works pretty well (in terms of fit), but it’s really overfitting all the noisy dimensions.&lt;/p&gt;
+
+&lt;p&gt;What if most of the features in X are either redundant or not really important for predicting? Well we could go ahead and perform PCA on the XObs to find what dimensions actually are important, \(XObs = Xlow   U_L\) where we only choose L components from the projection matrix U &lt;label for=&quot;five&quot; class=&quot;margin-toggle sidenote-number&quot;&gt;&lt;/label&gt;&lt;input type=&quot;checkbox&quot; id=&quot;five&quot; class=&quot;margin-toggle&quot; /&gt;&lt;span class=&quot;sidenote&quot;&gt;PCA decomposes X into two matrices, UDU’ where U is a projection matrix and D is a diagonal matrix. SVD breaks a matrix into three matrices where U’ = V. &lt;/span&gt;. In MATLAB we can do this by performing SVD on the covariance matrix of the features.&lt;/p&gt;
+&lt;div class=&quot;language-matlab highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;CObs&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;cov&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;XObs&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;U&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;S&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;V&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;svd&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;CObs&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;% Find percent variance explained:&lt;/span&gt;
+&lt;span class=&quot;nb&quot;&gt;cumsum&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;diag&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;S&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)/&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;sum&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;diag&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;S&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)))&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;We find that we can explain over 80% of the variance with one component, and only need 10 components to explain everything. So we could go ahead and use those new lower dimensions for regression:&lt;/p&gt;
+&lt;div class=&quot;language-matlab highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;Xpca_scores&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;XObs&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;U&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(:,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;10&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;beta2&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Xpca_scores&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;\&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Response&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;Again, if we only cared about fit here we do a good job, but again there’s a worry of overfit. There’s also another worry: if this was bad at predicting how do we assign blame? Which was the problem, the PCA or the regression? Now what if we wanted to &lt;em&gt;use&lt;/em&gt; those hidden states; did we grab the &lt;em&gt;right&lt;/em&gt; hidden states? If we wanted to somehow use the regression &lt;em&gt;with&lt;/em&gt; the PCA to find the hidden state that’s important at predicting the response, then we’d have to combine these ideas.&lt;/p&gt;
+
+&lt;p&gt;That’s what PLS does. Partial Least Squares is named based on a comparison with the least squares method for regression&lt;label for=&quot;six,&quot; class=&quot;margin-toggle sidenote-number&quot;&gt;&lt;/label&gt;&lt;input type=&quot;checkbox&quot; id=&quot;six,&quot; class=&quot;margin-toggle&quot; /&gt;&lt;span class=&quot;sidenote&quot;&gt;Interestingly, the co-creater of PLS, Svante Wold, &lt;a href=&quot;http://www.sciencedirect.com/science/article/pii/S0169743901001551&quot;&gt;prefers the name&lt;/a&gt; &lt;em&gt;projection to latent structures&lt;/em&gt;, which is much more explanatory. &lt;/span&gt;. PCA only minimizes reconstruction error, while regression minimizes least squares fit error. PLS tries to find the lower dimension that best predicts the response Y (using ‘partial’ least squares). It’s a type of &lt;em&gt;directed dimensionality reduction&lt;/em&gt;.&lt;/p&gt;
+
+&lt;p&gt;A way to visualize the model of PLS is below. This graphic shows each matrix that PLS is working with, and how they relate. Here our data of predictors is X with responses Y, and the scores refer to the points in a lower dimension space.&lt;/p&gt;
+&lt;figure&gt;&lt;img src=&quot;/assets/img/pls/pls4.jpg&quot; /&gt;&lt;figcaption class=&quot;maincolumn-figure&quot;&gt;PLS image taken from &lt;a href=&quot;https://www.intechopen.com/books/multivariate-analysis-in-management-engineering-and-the-sciences/application-of-multivariate-data-analyses-in-waste-management&quot;&gt;here&lt;/a&gt;.&lt;/figcaption&gt;&lt;/figure&gt;
+&lt;p&gt;To relate to our equations, our \(Xscores = T\) and \(Yscores = U\), and the regression takes place as \(U = B   T\), where \(B\) are the regression coefficients that relate X to Y through the lower dimensions.&lt;/p&gt;
+
+&lt;p&gt;In MATLAB, it’s simple:&lt;/p&gt;
+&lt;div class=&quot;language-matlab highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;ncomp&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;% Choose the number of components.&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Xlow&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Ylow&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Xscores&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Yscores&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;beta&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;plsregress&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Xobs&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Response&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ncomp&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;&lt;label for=&quot;two&quot; class=&quot;margin-toggle&quot;&gt;⊕&lt;/label&gt;&lt;input type=&quot;checkbox&quot; id=&quot;two&quot; class=&quot;margin-toggle&quot; /&gt;&lt;span class=&quot;marginnote&quot;&gt;&lt;img class=&quot;fullwidth&quot; src=&quot;/assets/img/pls/pls2.png&quot; /&gt;&lt;br /&gt;plot(Xscores, HiddenState, ‘.’). Note we don’t completely recover the original states&lt;/span&gt;
+Note that PLS can deal with multiple Y dimensions as well, fitting a lower Y state (here Ylow, which we ignore). The scores are the projected lower dimension values, while the Xlow and Ylow are the projection matrices, so &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Response = Yscores * Ylow&apos;&lt;/code&gt; and &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;XObs = Xscores *  Xlow&apos;&lt;/code&gt;. The beta weights here are the weights&lt;label for=&quot;seven&quot; class=&quot;margin-toggle sidenote-number&quot;&gt;&lt;/label&gt;&lt;input type=&quot;checkbox&quot; id=&quot;seven&quot; class=&quot;margin-toggle&quot; /&gt;&lt;span class=&quot;sidenote&quot;&gt;including intercept &lt;/span&gt; &lt;em&gt;in the higher dimension space&lt;/em&gt;, which is incredibly important. So &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Response = Xobs*beta(2:end)&lt;/code&gt;, rather than being the weights in the lower dimension. You would have to project down using Xlow to get those values. In other words, \(B = \beta \times  Xlow\).&lt;/p&gt;
+
+&lt;p&gt;Notice we had to choose a number of components. &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;plsregress&lt;/code&gt; will actually output percent variance explained and mean squared error for fits from 1 to ncomp, so we can use that to decide the number of components. Which value we use largely depends on how we use the results of the model fit. Here we care mostly if we get the score values corresponding to the hidden state, so we have an external way to check.&lt;/p&gt;
+
+&lt;p&gt;For a geometric visualization of PLS, below we can see both the plane defined by the dimensionality reduction, and the line for the regression.&lt;/p&gt;
+&lt;figure&gt;&lt;img src=&quot;/assets/img/pls/pls3.png&quot; /&gt;&lt;figcaption class=&quot;maincolumn-figure&quot;&gt;From &lt;a href=&quot;http://www.iasbs.ac.ir/chemistry/chemometrics/history/4th/5.pdf&quot;&gt;Wold, Sjostrom, and Eriksson 2001&lt;/a&gt;&lt;/figcaption&gt;&lt;/figure&gt;
+&lt;p&gt;The data from X fall on the plane, but follow the line (with noise). The line and components are chosen to induce a best correlation fit to the response Y.&lt;/p&gt;
+
+&lt;p&gt;That’s a brief introduction into PLS, hopefully useful. I have a &lt;a href=&quot;https://gist.github.com/quantummoose/ca12fea5c1285bbc9742d47bbc4dfc9b&quot;&gt;gist of the code used&lt;/a&gt; if you’d like to see that. More detailed explanations exist for the model specifications if you’re interested&lt;label for=&quot;eight&quot; class=&quot;margin-toggle sidenote-number&quot;&gt;&lt;/label&gt;&lt;input type=&quot;checkbox&quot; id=&quot;eight&quot; class=&quot;margin-toggle&quot; /&gt;&lt;span class=&quot;sidenote&quot;&gt;Look at Kevin Murphy’s &lt;em&gt;Machine Learning: a Probabilistic Approach&lt;/em&gt; for a good comparison of the generative model of PLS to other methods, including CCA and PCA &lt;/span&gt;. It’s good for me to think through it sometimes.&lt;/p&gt;
+
+&lt;p&gt;PLS isn’t the only method of performing directed dimensionality reduction, and it’s also not the only way to deal with regression with high correlation in the features. For example, &lt;a href=&quot;https://stats.stackexchange.com/questions/206587/what-is-the-connection-between-partial-least-squares-reduced-rank-regression-a&quot;&gt;canonical correlation&lt;/a&gt; analysis is similar to PLS, but considers X and Y equivalent in that there isn’t one ‘predictor’. PLS is also used for &lt;a href=&quot;http://hbanaszak.mjr.uw.edu.pl/TempTxt/HaenleinKaplan_2004_BeginnersGuideToPLSAnalysis.pdf&quot;&gt;structural equation modeling&lt;/a&gt;, a topic I understand very little, but is related in behavioral research.&lt;/p&gt;
+
+&lt;p&gt;Really it depends on the type of data you have, and the type of question you’re interested in. The goal either way is to move beyond just simple regression, to get at the latent structure underlying the data.&lt;/p&gt;
+
+&lt;p&gt;Brief note: these are deeply related to &lt;a href=&quot;https://en.wikipedia.org/wiki/Autoencoder&quot;&gt;autoencoders&lt;/a&gt;, a type of neural network. PLS basically specifies a particular network structures, based on the type of generative model.&lt;/p&gt;
+</description>
+        <pubDate>Sat, 08 Jul 2017 00:00:00 +0000</pubDate>
+        <link>/articles/17/pls</link>
+        <guid isPermaLink="true">/articles/17/pls</guid>
+        
+        
+        <category>research</category>
+        
+      </item>
+    
+      <item>
+        <title>Representation in Psychology</title>
+        <description>&lt;p&gt;I had long been confused about the concept of representation as it appears in psychology, most because it had been rather poorly taught and vaguely explained in my undergraduate years. I even remember remarking in an animal cognition course about how psychologist’s don’t seem to have a unified sense of what “representation” means. More recently the idea has become much clearer (for me), in particular after reading through Gallistel’s book &lt;em&gt;The Organization of Learning&lt;/em&gt;. There he identified representation psychologically with representation mathematically, which I think buys you a lot.&lt;/p&gt;
+
+&lt;p&gt;Representation, along with computation, is a word that does a lot of theoretical heavy lifting in psychology and neuroscience. In neuroscience the focus is on understanding how the brain “represents” external stimuli, values, actions, or memory, and is generally investigated using decoding and encoding principals.&lt;/p&gt;
+
+&lt;p&gt;For example, if you want to know how the brain represents some visual stimuli \(S\), you can perform brain recordings&lt;label for=&quot;one&quot; class=&quot;margin-toggle sidenote-number&quot;&gt;&lt;/label&gt;&lt;input type=&quot;checkbox&quot; id=&quot;one&quot; class=&quot;margin-toggle&quot; /&gt;&lt;span class=&quot;sidenote&quot;&gt;I’m being flippant here about what I mean by ‘brain recording’, so take this as a first approximation. &lt;/span&gt; to get brain state \(B\) and try to infer \(P(B \mid S)\). This is encoding - predicting brain activity from some external stimuli&lt;label for=&quot;two&quot; class=&quot;margin-toggle sidenote-number&quot;&gt;&lt;/label&gt;&lt;input type=&quot;checkbox&quot; id=&quot;two&quot; class=&quot;margin-toggle&quot; /&gt;&lt;span class=&quot;sidenote&quot;&gt;There’s another notion of encoding and decoding that is brain centric, but they are highly related &lt;/span&gt; - and one of the major goals of a lot of neuroimaging.&lt;/p&gt;
+
+&lt;p&gt;To be clear, what we get out of this kind of analysis is a prediction. We don’t necessarily get the result “this brain state &lt;em&gt;represents&lt;/em&gt; the stimuli”, but we do get “this brain state is predictable from this stimuli”, which is related. While there’s more to discuss in understanding brain representations, we haven’t clarified what we mean by representation in the first place.&lt;/p&gt;
+
+&lt;p&gt;What can help us, oddly enough, is by trying to get more abstract and not even refer to the brain. What do we mean mathematically when we talk about representation? If we have a mathematical model of something in the world, where certain variables represent particular world states, factors, or concepts, we’re talking about a relationship between the world and our symbols. This relationship can be considered a function, where we take some world state \(S\) and map it to a model variable \(V\) using some relationship \(S \rightarrow M\) where that arrow maps elements from \(S\) into \(V\). This mapping should be &lt;a href=&quot;https://en.wikipedia.org/wiki/Homomorphism&quot;&gt;homomorphic&lt;/a&gt;, meaning that it also preserves the operations of each group. So, if things change in the world, they should change in the same way in the model.&lt;/p&gt;
+
+&lt;p&gt;Similar ideas formalizing &lt;a href=&quot;http://suppes-corpus.stanford.edu/articles/mpm/382.pdf&quot;&gt;measurement&lt;/a&gt; had been developed by early mathematical psychologists, such as Duncan Luce, and Gallistel &lt;a href=&quot;http://www.annualreviews.org/doi/abs/10.1146/annurev.ps.40.020189.001103?journalCode=psych&quot;&gt;used&lt;/a&gt; these ideas to preface his discussion of a computational explanation of behavior. Computation, following this idea, is the transformation of one representation into another. Information processing in the brain or mind consists of these transformations of representations in the service of performing actions to satisfy goals.&lt;/p&gt;
+
+&lt;p&gt;Simple enough.&lt;/p&gt;
+
+&lt;p&gt;What I appreciate is how grounded these are mathematically, which makes it much easier to relate to modeling efforts and data analysis. Of course this is also just the theoretical beginning, but it definitely has helped clarify representations for me at least.&lt;/p&gt;
+</description>
+        <pubDate>Sat, 08 Apr 2017 00:00:00 +0000</pubDate>
+        <link>/articles/17/representation</link>
+        <guid isPermaLink="true">/articles/17/representation</guid>
+        
+        
+        <category>research</category>
+        
+      </item>
+    
+      <item>
+        <title>Scholarship in Tolkien&apos;s books</title>
+        <description>&lt;p&gt;At the beginning of the &lt;em&gt;Lord of the Rings: The Fellowship of the Rings&lt;/em&gt; (the movie), Galadriel tells the story of the loss and finding of the Ring. This rather well done exposition goes from the creation of the rings of power to Bilbo finding the ring and ends by transitioning into the Long Expected Party, which is where the book starts. The book’s prologue only features some Hobbit lore and reminds the readers of Bilbo’s story, but doesn’t detail the lost lore of the Ring. The reader isn’t told this lore - it is something that Gandalf has to research.&lt;/p&gt;
+
+&lt;p&gt;While most viewers might not care, one of the things that interests me about &lt;em&gt;Lord of the Rings&lt;/em&gt; is that one of the most important things Gandalf did was scholarship. The exposition from the movie shows in a few minutes what he took years (17!) to investigate. It’s not until the Council of Elrond that Gandalf fully explains the backstory, after Galdor of the Havens asks for “proofs” that the Frodo’s ring actually is the One Ring. It isn’t actually obvious that Frodo’s ring is important, given that there are other magic rings and other great rings as well. Taking a long quest against a powerful enemy could be worse than a waste of time if it’s not the real Ring.&lt;/p&gt;
+
+&lt;p&gt;Gandalf revealed how he had searched for and questioned Gollum and what he learned from him. He filled in the details of Saruman’s lore by scouring the records of Minas Tirith&lt;label for=&quot;one&quot; class=&quot;margin-toggle sidenote-number&quot;&gt;&lt;/label&gt;&lt;input type=&quot;checkbox&quot; id=&quot;one&quot; class=&quot;margin-toggle&quot; /&gt;&lt;span class=&quot;sidenote&quot;&gt;Many of these records are written in languages unknown by the lore-masters of the city &lt;/span&gt;. All of this was necessary for him to push Frodo to start the Quest in the first place and to assemble the Fellowship.&lt;/p&gt;
+
+&lt;p&gt;Late at the end of &lt;em&gt;The Two Towers&lt;/em&gt;, Gandalf recalls some Rhymes of Lore while riding to Minas Tirith with Pippin, regarding the Palantir&lt;label for=&quot;two&quot; class=&quot;margin-toggle sidenote-number&quot;&gt;&lt;/label&gt;&lt;input type=&quot;checkbox&quot; id=&quot;two&quot; class=&quot;margin-toggle&quot; /&gt;&lt;span class=&quot;sidenote&quot;&gt;&lt;em&gt;Tall ships and tall kings
+Three times three,
+What brought they from the foundered learned
+Over the flowing sea?
+Seven stars and seven stones
+And one white tree.&lt;/em&gt; &lt;/span&gt; Treebeard also uses rhymes as mnemonics to remember creatures of Middle Earth&lt;label for=&quot;three&quot; class=&quot;margin-toggle sidenote-number&quot;&gt;&lt;/label&gt;&lt;input type=&quot;checkbox&quot; id=&quot;three&quot; class=&quot;margin-toggle&quot; /&gt;&lt;span class=&quot;sidenote&quot;&gt;&lt;em&gt;Learn now the lore of Living Creatures!
+First name the four, the free peoples:
+Eldest of all, the elf-children;
+Dwarf the delver, dark are his houses;
+Ent the earthborn, old as mountains;
+Man the mortal, master of horses:&lt;/em&gt; &lt;/span&gt;.&lt;/p&gt;
+
+&lt;p&gt;I think what interests me about this view of lore is how knowledge seems to work in these books. In many fantasy works the author tells you the world through an omniscient lens, and you end up with a rather small world in the end since the world only exists of what the author knows. When there are things that the author &lt;em&gt;doesn’t&lt;/em&gt; know or leaves out, it can feel much more like a real world. This is something Neil Gaiman sometimes does very well.&lt;/p&gt;
+
+&lt;p&gt;This is also what makes &lt;em&gt;Roadside Picnic&lt;/em&gt; such a wonderful story, as everything is completely unknown. Visitors came and left, leaving behind the Zones filled with terrible wonders which are marveled by scientists and stolen by stalkers. Of course in Tolkien’s world the full history exists, but it’s not directly known by the characters or the reader. In Gandalf’s case there is a world filled with lore that can be researched rather than a world filled with mysteries that have to be experienced. It’s almost the difference between humanities or journalism research and scientific research…&lt;/p&gt;
+</description>
+        <pubDate>Fri, 06 Jan 2017 00:00:00 +0000</pubDate>
+        <link>/articles/17/gandalf-as-scholar</link>
+        <guid isPermaLink="true">/articles/17/gandalf-as-scholar</guid>
+        
+        
+        <category>random</category>
+        
+      </item>
+    
+      <item>
+        <title>Safety and threat in games</title>
+        <description>&lt;p&gt;&lt;label for=&quot;one&quot; class=&quot;margin-toggle&quot;&gt;⊕&lt;/label&gt;&lt;input type=&quot;checkbox&quot; id=&quot;one&quot; class=&quot;margin-toggle&quot; /&gt;&lt;span class=&quot;marginnote&quot;&gt;&lt;img class=&quot;fullwidth&quot; src=&quot;/assets/img/safety_games/carveraffect.png&quot; /&gt;&lt;br /&gt;The different emotions produced from successful approach or avoidance, from &lt;a href=&quot;http://www.psy.miami.edu/faculty/ccarver/pPleasure.pdf&quot;&gt;Carver (2003)&lt;/a&gt;&lt;/span&gt;
+&lt;span class=&quot;newthought&quot;&gt;Safety and threat&lt;/span&gt;  are interesting things in video games. In horror games this is something the designer explicitly plays with, trying to &lt;a href=&quot;https://youtu.be/vQN4UHM_PoU?t=4m40s&quot;&gt;spook you with their spooky spooks&lt;/a&gt;. But these feelings of fear and calm occur in most games. They seem to occur in any game where there are threats that have to be &lt;em&gt;avoided&lt;/em&gt;, which produces relief when successful. What’s interesting is how these feelings adapt based on your &lt;a href=&quot;https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4364301/&quot;&gt;expectations of survival and threat&lt;/a&gt; in these games.&lt;/p&gt;
+
+&lt;p&gt;In the &lt;em&gt;Dark Souls&lt;/em&gt; series the bonfire acts as a “save state” for your character, filling up your health and resources and providing a respawn point for the next time you die&lt;label for=&quot;one&quot; class=&quot;margin-toggle sidenote-number&quot;&gt;&lt;/label&gt;&lt;input type=&quot;checkbox&quot; id=&quot;one&quot; class=&quot;margin-toggle&quot; /&gt;&lt;span class=&quot;sidenote&quot;&gt;&lt;a href=&quot;https://www.youtube.com/watch?v=wYbOVTQnbAA&quot;&gt;and you will die&lt;/a&gt; &lt;/span&gt;. They often are placed just after dense areas populated by monsters, and once you get there and light the fire you have an instant feeling of relief.&lt;/p&gt;
+
+&lt;figure class=&quot;fullwidth&quot;&gt;&lt;img src=&quot;/assets/img/safety_games/darksoulsbonfire1.gif&quot; /&gt;&lt;figcaption&gt;After the hardest point in the game, this feels so warm and cozy. (&lt;a href=&quot;http://zedotagger.deviantart.com/art/Dark-Souls-Solaire-537366036&quot;&gt;source&lt;/a&gt;)&lt;/figcaption&gt;&lt;/figure&gt;
+
+&lt;p&gt;Most games generally have the difficulty of a game fluctuate up and down, sustaining periods of high intensity followed by periods of soothing calm. Usually these periods of safety are strongly signaled by some &lt;em&gt;cue&lt;/em&gt; in the environment. These cues have to be consistent, so that when you are in the safe zone you know you won’t be attacked or threatened in any way. If the cues are inconsistent then they can’t be trusted, and no consistent feeling of safety occurs since you can’t track how well you’re avoiding threats.&lt;/p&gt;
+
+&lt;p&gt;&lt;label for=&quot;two&quot; class=&quot;margin-toggle&quot;&gt;⊕&lt;/label&gt;&lt;input type=&quot;checkbox&quot; id=&quot;two&quot; class=&quot;margin-toggle&quot; /&gt;&lt;span class=&quot;marginnote&quot;&gt;&lt;img class=&quot;fullwidth&quot; src=&quot;/assets/img/safety_games/l4dflow.png&quot; /&gt;&lt;br /&gt;Flow diagram used by the &lt;em&gt;Left 4 Dead&lt;/em&gt; AI director to control the zombie intensity. (&lt;a href=&quot;http://www.valvesoftware.com/publications/2009/ai_systems_of_l4d_mike_booth.pdf&quot;&gt;source&lt;/a&gt;)&lt;/span&gt;
+In &lt;em&gt;Left 4 Dead&lt;/em&gt; these safe spots are literally termed “safe houses”, and provides complete safety from zombies (the main threat in the game). These houses are locked rooms enclosed and encased in concrete, which provides clear prior cues to safety. These safe rooms are the safest parts of the game (besides the ending rescue) and provide extra ammunition, weapons, and health. They also provide little moments for the characters to interact.&lt;/p&gt;
+
+&lt;p&gt;The threat fluctuates outside of the safe room as well. The graph below shows the measured game intensity based on zombie population. The threat of zombies here fluctuates explicitly based on the AI director, which tracks the intensity of the game and adaptively controls it. When the intensity gets too high it pulls back and spawns less zombies, but in periods of calm it ramps up and starts to spawn more and more. Most games do the same thing, but usually just based on enemy placement when a level is designed.&lt;/p&gt;
+
+&lt;figure&gt;&lt;img src=&quot;/assets/img/safety_games/l4dintensity.png&quot; /&gt;&lt;figcaption class=&quot;maincolumn-figure&quot;&gt;Note that during the Relax period the intensity takes a while to drop down.&lt;/figcaption&gt;&lt;/figure&gt;
+
+&lt;p&gt;Games can play with these feelings of safety and mess with your expectations one way or the other. In the game &lt;a href=&quot;https://www.youtube.com/watch?v=9jWsiyXoTz0&quot;&gt;&lt;em&gt;Amnesia: The Dark Descent&lt;/em&gt;&lt;/a&gt; you are tracked by a few unknown monsters throughout most of the game, and can hide in the dark at the risk of insanity. Light is a common safety motif across games, mostly due to the simple fact that light allows for sight. However some play with this; in Amnesia there’s a tradeoff, while in &lt;a href=&quot;https://en.wikipedia.org/wiki/Among_the_Sleep&quot;&gt;&lt;em&gt;Among the Sleep&lt;/em&gt;&lt;/a&gt; light is a limited resource.&lt;/p&gt;
+
+&lt;p&gt;Throughout most of Amnesia the game presents a fairly constant (though still fluctuating) state of fear. However a few moments of relative safety do occur, one being the presence of Heinrich Cornelius Agrippa.&lt;/p&gt;
+
+&lt;figure&gt;&lt;img src=&quot;/assets/img/safety_games/amnesia-the-dark-descent-agrippa.jpg&quot; /&gt;&lt;figcaption class=&quot;maincolumn-figure&quot;&gt;&lt;a href=&quot;https://youtu.be/syBkLLe-_nk?t=4m33s&quot;&gt;Hey buddy&lt;/a&gt;&lt;/figcaption&gt;&lt;/figure&gt;
+
+&lt;p&gt;Despite the way he looks, Agrippa becomes your best friend by the time you get to him. Later you have to saw off his head and shove it into your knapsack, which he very appreciates. At this point in the game you’re on constant alert; scared of your own shadow. So having the first person you meet in the game so calmly talk to you, without any fear in a fairly brightly lit room, gives you a wonderful sense of relief. If Agrippa were the first thing you saw in the game I’m sure your feelings towards him would be widely different.&lt;/p&gt;
+
+&lt;p&gt;I think these feelings of threat and safety are really important to most games. It’s interesting to think about what cues people learn or assume signal safety. It’s also interesting to think about the rhythms that people enjoy the most. If the game is too constantly at a high intensity it can quickly become overwhelming, but in some games the high intensity is really desired. The same &lt;a href=&quot;http://hedonometer.org/books/v3/1777/&quot;&gt;emotional rhythms&lt;/a&gt; occur in movies and books too, suggesting they are generally important to engagement in a story.&lt;/p&gt;
+
+&lt;p&gt;The best writers, directors, and designers have an intuitive knack for when a story should be high or low. It’s likely a whole mess of factors, including cognitive fatigue along with motivational and perceptual expectations. I’m curious what deeper principles lie behind these rhythms and our sense of safety.&lt;/p&gt;
+</description>
+        <pubDate>Tue, 03 Jan 2017 00:00:00 +0000</pubDate>
+        <link>/articles/17/safety-games</link>
+        <guid isPermaLink="true">/articles/17/safety-games</guid>
+        
+        
+        <category>research</category>
+        
+      </item>
+    
+      <item>
+        <title>Model fitting: testing versus using</title>
+        <description>&lt;p&gt;&lt;span class=&quot;newthought&quot;&gt;I’ve been dwelling&lt;/span&gt;  recently on what a model does, in terms of how it can be used and what it means. In particular, &lt;em&gt;Mathematical Psychology: An elementary introduction&lt;/em&gt;&lt;label for=&quot;one&quot; class=&quot;margin-toggle sidenote-number&quot;&gt;&lt;/label&gt;&lt;input type=&quot;checkbox&quot; id=&quot;one&quot; class=&quot;margin-toggle&quot; /&gt;&lt;span class=&quot;sidenote&quot;&gt;By Coombs, Dawes, and Tversky from 1970 &lt;/span&gt;, describes two very different ways of using a model that I want to talk about here.&lt;/p&gt;
+
+&lt;p&gt;&lt;label for=&quot;zero&quot; class=&quot;margin-toggle&quot;&gt; ⊕&lt;/label&gt;&lt;input type=&quot;checkbox&quot; id=&quot;zero&quot; class=&quot;margin-toggle&quot; /&gt;&lt;span class=&quot;marginnote&quot;&gt;&lt;em&gt;“For such a model there is no need to ask the question &apos;Is the model true?&apos;. If &apos;truth&apos; is to be the &apos;whole truth&apos; the answer must be &apos;No&apos;. The only question of interest is &apos;Is the model illuminating and useful?”&lt;/em&gt; - &lt;a href=&quot;https://en.wikipedia.org/wiki/All_models_are_wrong#Quotations_of_George_Box&quot;&gt;George Box&lt;/a&gt;  &lt;/span&gt;
+&lt;a href=&quot;https://en.wikipedia.org/wiki/All_models_are_wrong&quot;&gt;All models are wrong&lt;/a&gt;. With that out of the way, it’s important to then realize that models can be more or less useful in different ways. Newtonian theories are incredibly useful, and even if quantum or relativistic models are technically “more right” in some sense, they might be less useful practically. Same goes for trying to have an overly detailed neural model of behavior when you’re not actually making a claim about neurons or measuring neural activity. This can easily encourage &lt;a href=&quot;https://en.wikipedia.org/wiki/Overfitting&quot;&gt;overfitting&lt;/a&gt; given all those extra parameters, and might not help you learn anything.&lt;/p&gt;
+
+&lt;p&gt;Any model with parameters you have to fit to data, and you can generally then test that fit. However the question you have isn’t always solved by a fit - often you don’t care really if the model is correct or not but rather what the parameter fit tells you. Coombs, Dawes, and Tvsersky give an interesting example comparing testing a model’s fit to test a theory versus using the model as a method of data analysis to extract information.&lt;/p&gt;
+
+&lt;p&gt;&lt;label for=&quot;one&quot; class=&quot;margin-toggle&quot;&gt;⊕&lt;/label&gt;&lt;input type=&quot;checkbox&quot; id=&quot;one&quot; class=&quot;margin-toggle&quot; /&gt;&lt;span class=&quot;marginnote&quot;&gt;&lt;img class=&quot;fullwidth&quot; src=&quot;/assets/img/models_say/markovgif2.gif&quot; /&gt;&lt;br /&gt;There’s a really good &lt;a href=&quot;http://setosa.io/ev/markov-chains/&quot;&gt;interactive introduction to Markov Chains here&lt;/a&gt;. I’d also suggest looking at all the other tutorials there.&lt;/span&gt;
+&lt;span class=&quot;newthought&quot;&gt;Markov chains&lt;/span&gt;  are really useful for a range of applications, since they’re so easy to analyze. Let’s say you have an experiment where the subject ran through multiple trials. Now you might want to see whether performance subsequent trials &lt;em&gt;n&lt;/em&gt; and &lt;em&gt;n+1&lt;/em&gt; are correlated - that is whether a Markov chain actually fits the data.&lt;/p&gt;
+
+&lt;p&gt;If a Markov chain fits, then something from each trial is impacting the next. This can easily be the case in many cognitive psychology tasks, and can imply something about the cognitive processes involved in the experiment For example, there might be “interference” from the previous trial due to working memory stuff.&lt;/p&gt;
+
+&lt;p&gt;&lt;label for=&quot;two&quot; class=&quot;margin-toggle&quot;&gt;⊕&lt;/label&gt;&lt;input type=&quot;checkbox&quot; id=&quot;two&quot; class=&quot;margin-toggle&quot; /&gt;&lt;span class=&quot;marginnote&quot;&gt;&lt;img class=&quot;fullwidth&quot; src=&quot;/assets/img/models_say/kinematicDiagram.png&quot; /&gt;&lt;br /&gt;An example Markov chain from the development of an &lt;a href=&quot;http://college.holycross.edu/faculty/kprestwi/behavior/e&amp;amp;be_notes/E&amp;amp;BE_ethograms.pdf&quot;&gt;ethogram&lt;/a&gt;, called a kinematic diagram in ethology. Here the different states are different behaviors, and the interest is in seeing how it changes.&lt;/span&gt;
+However you might not want to actually be &lt;em&gt;testing&lt;/em&gt; a Markov assumption per say, but just using it as a way to get at the trial by trial (or time by time) correlations in the data. This is common in &lt;a href=&quot;https://en.wikipedia.org/wiki/Ethology&quot;&gt;ethological&lt;/a&gt; research, where the question isn’t whether the behavior is best fit by a Markov chain, but using that assumption to help analyze behavior.&lt;/p&gt;
+
+&lt;p&gt;The second part is really important I think, as basically every data analysis method does this. Fitting a gaussian is less interesting than talking about the mean and standard deviation. The drift diffusion model can be fit to almost every set of reaction time data, so the real question is what it helps you say about the parameters.&lt;/p&gt;
+
+&lt;p&gt;Of course, the model could be so off that the parameters are completely uninterpretable. Practice safe analysis and check your assumptions!&lt;/p&gt;
+</description>
+        <pubDate>Sun, 01 Jan 2017 00:00:00 +0000</pubDate>
+        <link>/articles/17/what-models-say</link>
+        <guid isPermaLink="true">/articles/17/what-models-say</guid>
+        
+        
+        <category>research</category>
+        
+      </item>
+    
+      <item>
+        <title>This blog</title>
+        <description>&lt;p&gt;&lt;span class=&quot;newthought&quot;&gt;As a new blogger&lt;/span&gt;  with Jekyll, one of my first posts is required to be about setting up this blog itself. Jekyll, as most things developed by programmers, is super easy and wonderful and magic and like sweet ambrosia.&lt;/p&gt;
+
+&lt;p&gt;Overall it hasn’t been that bad of actually. Most of the guides are &lt;a href=&quot;http://andybeger.com/2016/06/20/moving-from-wordpress-to-jekyll/&quot;&gt;pretty detailed&lt;/a&gt;, and walk you through most of the problems you might have.&lt;/p&gt;
+
+&lt;p&gt;This blog uses the &lt;a href=&quot;https://github.com/clayh53/tufte-jekyll&quot;&gt;Tufte-Jekyll&lt;/a&gt; theme, developed by Clay Harmon, which uses custom Liquid tags. I really like the Tufte style of formatting, largely because of the margin notes and figures, so this was the right place to start.&lt;/p&gt;
+
+&lt;p&gt;But, as this is my first time implementing a blog in Gitpages, I received this error after pushing my edited work.&lt;/p&gt;
+
+&lt;figure&gt;&lt;img src=&quot;/assets/img/blogerror1.png&quot; /&gt;&lt;figcaption class=&quot;maincolumn-figure&quot;&gt;Thanks my gitbubber&lt;/figcaption&gt;&lt;/figure&gt;
+
+&lt;p&gt;This confused me, as I got the whole thing working locally&lt;label for=&quot;one&quot; class=&quot;margin-toggle sidenote-number&quot;&gt;&lt;/label&gt;&lt;input type=&quot;checkbox&quot; id=&quot;one&quot; class=&quot;margin-toggle&quot; /&gt;&lt;span class=&quot;sidenote&quot;&gt;I had to use &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;bundle exec jekyll build&lt;/code&gt; and &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;bundle exec jekyll serve -w&lt;/code&gt;, due to Mac protecting Ruby something something? I’m ctrl-c ctrl-ving this &lt;/span&gt;. However, after actually &lt;em&gt;reading&lt;/em&gt; the documentation, I learned that I couldn’t use any of the custom Liquid tags in Gitpages as a default. That’s really annoying, as that was the whole point so I could use&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;{% marginnote &quot;one&quot; &quot;Look at this sweet ass-margin note&quot;  %}&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;But of course this was already solved by the Tufte-Jekyll theme if I had just read &lt;em&gt;that&lt;/em&gt; documentation. The Rakefile solves this by doing some building stuff and making the site locally before pushing it to git pages&lt;label for=&quot;two&quot; class=&quot;margin-toggle sidenote-number&quot;&gt;&lt;/label&gt;&lt;input type=&quot;checkbox&quot; id=&quot;two&quot; class=&quot;margin-toggle&quot; /&gt;&lt;span class=&quot;sidenote&quot;&gt;Rakefiles are like makefiles which, as I’m not a software developer, I’m not used to in the first place. &lt;/span&gt;. But since I want this as my default page for the github.io, which needs to be on the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;master&lt;/code&gt; branch of the git thing because reasons, I had to edit the Rakefile so it would push the finished site to the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;master&lt;/code&gt; branch, and used a new branch randomly named &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;servant&lt;/code&gt; to store my work.&lt;/p&gt;
+
+&lt;p&gt;Finally, after all of that hullabaloo, most of the css and html didn’t display anyways. I had to edit the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;_config.yml&lt;/code&gt; file so that it fit with everything else I was doing.&lt;/p&gt;
+
+&lt;p&gt;Seems to work! I am not a web developer so this is all new and blegh to me, but the best way to learn is to debug what’s broke.&lt;/p&gt;
+</description>
+        <pubDate>Thu, 29 Dec 2016 00:00:00 +0000</pubDate>
+        <link>/articles/16/this-blog</link>
+        <guid isPermaLink="true">/articles/16/this-blog</guid>
+        
+        
+        <category>random</category>
+        
+      </item>
+    
   </channel>
 </rss>

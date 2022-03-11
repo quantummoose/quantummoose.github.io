@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="shortcut icon" href="/assets/img/favicon.png">
+  <!-- favicon stuff
+  <link rel="shortcut icon" href="/favicon.ico">
+  <link rel="shortcut icon" type="image/png" href="assets/favicon.png"> -->
+
+  <title>Psychometrics and preprocessing</title>
+  <meta name="description" content="In psychometrics, measures are often made without regards to the particular question or experiment they might be used for. The quantification of “good” measu...">
+
+  <!-- Google Fonts loaded here depending on setting in _data/options.yml true loads font, blank does not-->
+  
+    <link href='//fonts.googleapis.com/css?family=Lato:400,400italic' rel='stylesheet' type='text/css'>
+  
+
+  <!-- Load up MathJax script if needed ... specify in /_data/options.yml file-->
+  
+    
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      extensions: [
+        "MathMenu.js",
+        "MathZoom.js",
+        "AssistiveMML.js",
+        "a11y/accessibility-menu.js"
+      ],
+      jax: ["input/TeX", "output/CommonHTML"],
+      TeX: {
+        extensions: [
+          "AMSmath.js",
+          "AMSsymbols.js",
+          "noErrors.js",
+          "noUndefined.js",
+        ]
+      }
+    });
+  </script>
+  
+  <script type="text/javascript" async
+    src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML">
+  </script>
+  
+   <!--   <script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script> -->
+  
+
+  <link rel="stylesheet" type="text/css" href="/css/tufte.css">
+  <!-- <link rel="stylesheet" type="text/css" href="/css/print.css" media="print"> -->
+
+  <link rel="canonical" href="/articles/22/psychometric-preprocessing">
+
+  <link rel="alternate" type="application/rss+xml" title="dominic mussack" href="/feed.xml" />
+</head>
+
+  <body>
+    <!--- Header and nav template site-wide -->
+
+<header>
+    <nav class="group">
+      <a href="/"><img class="circular--square" src="/assets/img/llama_self.jpg" alt="CH"></a>
+    	
+    		
+      
+    		
+    		    
+    		      <a href="/about">about</a>
+    		    
+    	    
+      
+    		
+      
+    		
+      
+    		
+    		    
+    		      <a href="/">blog</a>
+    		    
+    	    
+      
+    		
+      
+    		
+    		    
+    		      <a href="/css/print.css"></a>
+    		    
+    	    
+      
+    		
+      
+	</nav>
+</header>
+
+    <article class="group">
+      <h1>Psychometrics and preprocessing</h1>
+
+<p>In psychometrics, measures are often made without regards to the particular question or experiment they might be used for. The quantification of “good” measures in psychometrics are often separate from the rest of the work. For example, a standard statistic used to determine the quality of a measure is <a href="https://en.wikipedia.org/wiki/Cronbach%27s_alpha">Chronbach’s alpha</a><label for="one" class="margin-toggle sidenote-number"></label><input type="checkbox" id="one" class="margin-toggle" /><span class="sidenote">There’s a good text covering this topic <a href="https://personality-project.org/r/book/Chapter7.pdf">here</a> </span>, which is a measure of the reliability of a test. There’s a whole discussion in the literature on the use and misuse and whether it’s a good measure, and I don’t care about that in particular. For myself, I dislike doing this kind of special case modeling.</p>
+
+<p>Much like Cohan’s d metric, or other simple statistics used throughout psychometrics or signal-detection theory, the usefulness of this equation draws particularly on the idea of <em>what model you assume</em> for the data. In many of these examples, these statistics make assumptions of simple linearity and normal distributions. This can be fine in a lot of cases – it’s like preprocessing<label for="two" class="margin-toggle sidenote-number"></label><input type="checkbox" id="two" class="margin-toggle" /><span class="sidenote">Expanded on below </span> – but it breaks when the assumptions are broken. In that case it can (and should) be integrated together with good modeling.</p>
+
+<p>Consider a probabilistic modeling approach, i.e., a <a href="https://betanalpha.github.io/assets/case_studies/principled_bayesian_workflow.html">Bayesian workflow</a>. In creating the observation model of the phenomena, we need to specify the <em>meaningfulness</em> of the measurement instrament. There’s not a strict distinction between modeling and measurement. In both cases you make a set of statistical assumptions concerning the data generation process. They’re part of the same data analysis process.</p>
+
+<p>This is same as the data model, a topic often ignored unless you work with databases. The structure of the data, as it’s collected and stored, requires us to precisely define our ontology. <a href="https://cran.r-project.org/web/packages/tidyr/vignettes/tidy-data.html">Tidy data</a>, for example, requires specifying what the values and repeated samples are. For example, consider whether you should treat experimentally collected data as a time series or as interchangable (which changes what “a sample” is). This also depends on the theoretical assumptions we have concerning the observation process of the phenomena.</p>
+
+<p>What’s interesting is that these are often thought of as distinct or separate. The particular analysis concerning a research question is often treated as independent from those concerning the data measurement and model<label for="three" class="margin-toggle sidenote-number"></label><input type="checkbox" id="three" class="margin-toggle" /><span class="sidenote">On a side note, it’s interesting how the drift diffusion model has become a type of preprocessing step for some analyses – almost like a data transformation </span>. That is, the measurement is easy to decompose from other parts, and we can recombine them later without concern. This isn’t always the case of course, but it can be for a lot of data preprocessing, especially when the underlying measurement process is incredibly well understood<label for="four" class="margin-toggle sidenote-number"></label><input type="checkbox" id="four" class="margin-toggle" /><span class="sidenote">A good example could be heart rate or other more biological or physical measures, where the signal processing can be sometimes physically embedded in the hardware. </span>. Technically a bandpass filter makes modeling assumptions, but if we understand the measurement, and the error is low, it’s fine.</p>
+
+<p>On a random note, a related idea in control theory is the <a href="https://en.wikipedia.org/wiki/Separation_principle">separation principle</a>, that is the idea that control and estimation can (in some instances) be decomposed. If the separation principle holds for a given control problem, then the inference problem (figuring out “what is there”) and the decision problem (figuring out “what to do”) can be solved independently.</p>
+
+<p>Of course good research always considers all the pieces together. But research always makes peripheral assumptions that can’t be written down. The best thing is to iteratively improve when it is shown to be a problem.</p>
+
+
+<br> <span>&#8203;<script type="math/tex"> \square </script></span> </br>
+<br><span class="smaller">March 11, 2022</span><br/>
+
+    </article>
+    <span class="print-footer">Psychometrics and preprocessing - March 11, 2022 - Dominic Mussack</span>
+    <footer>
+
+<hr class="slender">
+  <ul class="footer-links">
+    <!--<li><a href="mailto:hate@spam.net"><span class="icon-mail"></span></a></li>    -->
+    
+      <li>
+        <a href="//www.twitter.com/quantummoose"><span class="icon-twitter"></span></a>
+      </li>
+    
+      <li>
+        <a href="//github.com/quantummoose"><span class="icon-github"></span></a>
+      </li>
+    
+  </ul>
+<div class="credits">
+<span>&copy; 2022 &nbsp;&nbsp;DOMINIC MUSSACK</span></br> <br>
+<span>This site uses the <a href="//github.com/clayh53/tufte-jekyll">Tufte theme </a> in <a href="//jekyllrb.com">Jekyll</a>. Rabbit-Duck favicon by Aenne Brielmann from the <a href="https://thenounproject.com/">Noun Project</a>.</span>
+</div>
+
+</footer>
+
+  </body>
+</html>

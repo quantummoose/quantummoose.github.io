@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="shortcut icon" href="/assets/img/favicon.png">
+  <!-- favicon stuff
+  <link rel="shortcut icon" href="/favicon.ico">
+  <link rel="shortcut icon" type="image/png" href="assets/favicon.png"> -->
+
+  <title>Representation in Psychology</title>
+  <meta name="description" content="I had long been confused about the concept of representation as it appears in psychology, most because it had been rather poorly taught and vaguely explained...">
+
+  <!-- Google Fonts loaded here depending on setting in _data/options.yml true loads font, blank does not-->
+  
+    <link href='//fonts.googleapis.com/css?family=Lato:400,400italic' rel='stylesheet' type='text/css'>
+  
+
+  <!-- Load up MathJax script if needed ... specify in /_data/options.yml file-->
+  
+    
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      extensions: [
+        "MathMenu.js",
+        "MathZoom.js",
+        "AssistiveMML.js",
+        "a11y/accessibility-menu.js"
+      ],
+      jax: ["input/TeX", "output/CommonHTML"],
+      TeX: {
+        extensions: [
+          "AMSmath.js",
+          "AMSsymbols.js",
+          "noErrors.js",
+          "noUndefined.js",
+        ]
+      }
+    });
+  </script>
+  
+  <script type="text/javascript" async
+    src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML">
+  </script>
+  
+   <!--   <script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script> -->
+  
+
+  <link rel="stylesheet" type="text/css" href="/css/tufte.css">
+  <!-- <link rel="stylesheet" type="text/css" href="/css/print.css" media="print"> -->
+
+  <link rel="canonical" href="/articles/17/representation">
+
+  <link rel="alternate" type="application/rss+xml" title="dominic mussack" href="/feed.xml" />
+</head>
+
+  <body>
+    <!--- Header and nav template site-wide -->
+
+<header>
+    <nav class="group">
+      <a href="/"><img class="circular--square" src="/assets/img/llama_self.jpg" alt="CH"></a>
+    	
+    		
+      
+    		
+    		    
+    		      <a href="/about">about</a>
+    		    
+    	    
+      
+    		
+      
+    		
+      
+    		
+    		    
+    		      <a href="/">blog</a>
+    		    
+    	    
+      
+    		
+      
+    		
+    		    
+    		      <a href="/css/print.css"></a>
+    		    
+    	    
+      
+    		
+      
+	</nav>
+</header>
+
+    <article class="group">
+      <h1>Representation in Psychology</h1>
+
+<p>I had long been confused about the concept of representation as it appears in psychology, most because it had been rather poorly taught and vaguely explained in my undergraduate years. I even remember remarking in an animal cognition course about how psychologist’s don’t seem to have a unified sense of what “representation” means. More recently the idea has become much clearer (for me), in particular after reading through Gallistel’s book <em>The Organization of Learning</em>. There he identified representation psychologically with representation mathematically, which I think buys you a lot.</p>
+
+<p>Representation, along with computation, is a word that does a lot of theoretical heavy lifting in psychology and neuroscience. In neuroscience the focus is on understanding how the brain “represents” external stimuli, values, actions, or memory, and is generally investigated using decoding and encoding principals.</p>
+
+<p>For example, if you want to know how the brain represents some visual stimuli \(S\), you can perform brain recordings<label for="one" class="margin-toggle sidenote-number"></label><input type="checkbox" id="one" class="margin-toggle" /><span class="sidenote">I’m being flippant here about what I mean by ‘brain recording’, so take this as a first approximation. </span> to get brain state \(B\) and try to infer \(P(B \mid S)\). This is encoding - predicting brain activity from some external stimuli<label for="two" class="margin-toggle sidenote-number"></label><input type="checkbox" id="two" class="margin-toggle" /><span class="sidenote">There’s another notion of encoding and decoding that is brain centric, but they are highly related </span> - and one of the major goals of a lot of neuroimaging.</p>
+
+<p>To be clear, what we get out of this kind of analysis is a prediction. We don’t necessarily get the result “this brain state <em>represents</em> the stimuli”, but we do get “this brain state is predictable from this stimuli”, which is related. While there’s more to discuss in understanding brain representations, we haven’t clarified what we mean by representation in the first place.</p>
+
+<p>What can help us, oddly enough, is by trying to get more abstract and not even refer to the brain. What do we mean mathematically when we talk about representation? If we have a mathematical model of something in the world, where certain variables represent particular world states, factors, or concepts, we’re talking about a relationship between the world and our symbols. This relationship can be considered a function, where we take some world state \(S\) and map it to a model variable \(V\) using some relationship \(S \rightarrow M\) where that arrow maps elements from \(S\) into \(V\). This mapping should be <a href="https://en.wikipedia.org/wiki/Homomorphism">homomorphic</a>, meaning that it also preserves the operations of each group. So, if things change in the world, they should change in the same way in the model.</p>
+
+<p>Similar ideas formalizing <a href="http://suppes-corpus.stanford.edu/articles/mpm/382.pdf">measurement</a> had been developed by early mathematical psychologists, such as Duncan Luce, and Gallistel <a href="http://www.annualreviews.org/doi/abs/10.1146/annurev.ps.40.020189.001103?journalCode=psych">used</a> these ideas to preface his discussion of a computational explanation of behavior. Computation, following this idea, is the transformation of one representation into another. Information processing in the brain or mind consists of these transformations of representations in the service of performing actions to satisfy goals.</p>
+
+<p>Simple enough.</p>
+
+<p>What I appreciate is how grounded these are mathematically, which makes it much easier to relate to modeling efforts and data analysis. Of course this is also just the theoretical beginning, but it definitely has helped clarify representations for me at least.</p>
+
+
+<br> <span>&#8203;<script type="math/tex"> \square </script></span> </br>
+<br><span class="smaller">April 8, 2017</span><br/>
+
+    </article>
+    <span class="print-footer">Representation in Psychology - April 8, 2017 - Dominic Mussack</span>
+    <footer>
+
+<hr class="slender">
+  <ul class="footer-links">
+    <!--<li><a href="mailto:hate@spam.net"><span class="icon-mail"></span></a></li>    -->
+    
+      <li>
+        <a href="//www.twitter.com/quantummoose"><span class="icon-twitter"></span></a>
+      </li>
+    
+      <li>
+        <a href="//github.com/quantummoose"><span class="icon-github"></span></a>
+      </li>
+    
+  </ul>
+<div class="credits">
+<span>&copy; 2022 &nbsp;&nbsp;DOMINIC MUSSACK</span></br> <br>
+<span>This site uses the <a href="//github.com/clayh53/tufte-jekyll">Tufte theme </a> in <a href="//jekyllrb.com">Jekyll</a>. Rabbit-Duck favicon by Aenne Brielmann from the <a href="https://thenounproject.com/">Noun Project</a>.</span>
+</div>
+
+</footer>
+
+  </body>
+</html>
