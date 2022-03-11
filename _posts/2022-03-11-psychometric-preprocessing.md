@@ -1,0 +1,21 @@
+---
+layout: post
+title:  "Psychometrics and preprocessing"
+date:   2022-03-11
+categories: research
+published: true
+---
+
+In psychometrics, measures are often made without regards to the particular question or experiment they might be used for. The quantification of "good" measures in psychometrics are often separate from the rest of the work. For example, a standard statistic used to determine the quality of a measure is [Chronbach's alpha](https://en.wikipedia.org/wiki/Cronbach%27s_alpha){% sidenote "one" "There's a good text covering this topic [here](https://personality-project.org/r/book/Chapter7.pdf)" %}, which is a measure of the reliability of a test. There's a whole discussion in the literature on the use and misuse and whether it's a good measure, and I don't care about that in particular. For myself, I dislike doing this kind of special case modeling. 
+
+Much like Cohan's d metric, or other simple statistics used throughout psychometrics or signal-detection theory, the usefulness of this equation draws particularly on the idea of _what model you assume_ for the data. In many of these examples there are assumptions of simple linearity and normal distributions. These statistics embed assumptions that can break down. This can be fine in a lot of cases -- it's like preprocessing{% sidenote "two" "Expanded on below" %}. But it can (and should) be integrated together with good modeling.
+
+Consider a probabilistic modeling approach, i.e., a [Bayesian workflow](https://betanalpha.github.io/assets/case_studies/principled_bayesian_workflow.html). In creating the observation model of the phenomena, we need to specify the _meaningfulness_ of the measurement instrament. There's not a strict distinction between modeling and measurement. In both cases you make a set of statistical assumptions concerning the data generation process. They're part of the same data analysis process.
+
+This is same as the data model, a topic often ignored unless you work with databases. The structure of the data, as it's collected and stored, requires us to precisely define our ontology. [Tidy data](https://cran.r-project.org/web/packages/tidyr/vignettes/tidy-data.html), for example, requires specifying what the values and repeated samples are. For example, consider whether you should treat experimentally collected data as a time series or as interchangable (which changes what "an observation" is). This also depends on the theoretical assumptions we have concerning the observation process of the phenomena.
+
+What's interesting is that these are often thought of as distinct or separate. The particular analysis concerning a research question is often treated as independent from those concerning the data measurement and model{% sidenote "three" "On a side note, it's interesting how the drift diffusion model has become a type of preprocessing step for some analyses -- almost like a data transformation" %}. That is, the measurement is easy to decompose from other parts, and we can recombine them later without concern. This isn't always the case of course, but it can be for a lot of data preprocessing, especially when the underlying measurement process is incredibly well understood{% sidenote "four" "A good example could be heart rate, where the signal processing can be sometimes physically embedded in the hardware." %}. Technically a bandpass filter makes modeling assumptions, but if we understand the measurement it's fine.
+
+On a random note, a related idea in control theory is the [separation principle](https://en.wikipedia.org/wiki/Separation_principle), that is the idea that control and estimation can (in some instances) be decomposed. If the separation principle holds for a given control problem, then the inference problem (figuring out "what is there") and the decision problem (figuring out "what to do") can be solved independently.
+
+Of course good research always considers them together. But research always makes peripheral assumptions that can't be written down. The best thing is to iteratively improve when it is shown to be a problem.
